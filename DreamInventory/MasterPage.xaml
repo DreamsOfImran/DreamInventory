@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DreamInventory.MasterPage">
+    <MasterDetailPage.Master>
+        <ContentPage Padding="10" BackgroundColor="LightGray" Title="Master">
+            <ContentPage.Content>
+                <StackLayout Margin="5,30,5,5">
+                    <!--<Label Text="|||" FontAttributes="Bold"  />-->
+
+                    <Label Text="Dashboard" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="Dashboard_Tapped"
+                                NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView WidthRequest="1" HeightRequest="1" Color="Black"></BoxView>
+
+
+                    <Label Text="Judgements" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="Judgement_Tapped"
+                                NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView WidthRequest="1" HeightRequest="1" Color="Black"></BoxView>
+
+                    <Label Text="Cases" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="Dashboard_Tapped"
+                                NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView WidthRequest="1" HeightRequest="1" Color="Black"></BoxView>
+
+                    <Label Text="Plaintiffs" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="Dashboard_Tapped"
+                                NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView WidthRequest="1" HeightRequest="1" Color="Black"></BoxView>
+
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <ContentPage Padding="10">
+            <ContentPage.Content>
+                <StackLayout Margin="5,30,5,5">
+                    <Label Text="Detail Page" />
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
