@@ -14,9 +14,9 @@ namespace DreamInventory
             Detail = new NavigationPage(new DashboardPage());
         }
 
-        void Dashboard_Tapped(System.Object sender, System.EventArgs e)
+        void Cases_Tapped(System.Object sender, System.EventArgs e)
         {
-            Detail = new NavigationPage(new DashboardPage());
+            Detail = new NavigationPage(new CasesPage());
         }
 
         void Judgement_Tapped(System.Object sender, System.EventArgs e)

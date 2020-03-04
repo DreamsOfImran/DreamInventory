@@ -6,10 +6,10 @@
                 <StackLayout Margin="5,30,5,5">
                     <!--<Label Text="|||" FontAttributes="Bold"  />-->
 
-                    <Label Text="Dashboard" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
+                    <Label Text="Cases" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
-                                Tapped="Dashboard_Tapped"
+                                Tapped="Cases_Tapped"
                                 NumberOfTapsRequired="1" />
                         </Label.GestureRecognizers>
                     </Label>
@@ -28,7 +28,7 @@
                     <Label Text="Cases" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
-                                Tapped="Dashboard_Tapped"
+                                Tapped="Cases_Tapped"
                                 NumberOfTapsRequired="1" />
                         </Label.GestureRecognizers>
                     </Label>
@@ -37,7 +37,7 @@
                     <Label Text="Plaintiffs" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
-                                Tapped="Dashboard_Tapped"
+                                Tapped="Cases_Tapped"
                                 NumberOfTapsRequired="1" />
                         </Label.GestureRecognizers>
                     </Label>
