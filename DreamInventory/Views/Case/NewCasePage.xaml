@@ -10,10 +10,15 @@
 
     <StackLayout>
         <Entry Text="{Binding Type}" Placeholder="Type" />
-        <Entry Text="{Binding Amount}" Placeholder="Amount" />
+        <Entry Text="{Binding Amount}" Placeholder="Amount" Keyboard="Numeric" />
         <Entry Text="{Binding CourtType}" Placeholder="Court Type" />
         <Entry Text="{Binding CaseType}" Placeholder="Case Type" />
+        <DatePicker Date="{Binding FillingDate}" />
         <Entry Text="{Binding Judge}" Placeholder="Judge" />
+        <Entry Text="{Binding DocketType}" Placeholder="Docket Type" />
+        <Entry Text="{Binding Description}" Placeholder="Description" />
+        <Entry Text="{Binding CaseNo}" Placeholder="Case No" />
+        <Entry Text="{Binding CaseUrl}" Placeholder="Case URL" />
 
         <Button Command="{Binding AddCaseCommand}" Text="Save" />
     </StackLayout>
