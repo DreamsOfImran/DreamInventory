@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using DreamInventory.Helpers;
+using DreamInventory.ViewModels;
 using Xamarin.Forms;
 
 namespace DreamInventory
@@ -11,7 +11,7 @@ namespace DreamInventory
         {
             InitializeComponent();
 
-            BindingContext = new CaseModelHelper();
+            BindingContext = new CasesViewModel();
         }
     }
 }
