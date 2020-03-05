@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DreamInventory.MasterPage">
+<MasterDetailPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false"
+    x:Class="DreamInventory.MasterPage">
     <MasterDetailPage.Master>
         <ContentPage Padding="10" BackgroundColor="LightGray" Title="Master">
             <ContentPage.Content>
@@ -15,20 +19,10 @@
                     </Label>
                     <BoxView WidthRequest="1" HeightRequest="1" Color="Black"></BoxView>
 
-
-                    <Label Text="Judgements" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
+                    <Label Text="Defendants" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
-                                Tapped="Judgement_Tapped"
-                                NumberOfTapsRequired="1" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <BoxView WidthRequest="1" HeightRequest="1" Color="Black"></BoxView>
-
-                    <Label Text="Cases" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Tapped="Cases_Tapped"
+                                Tapped="Defendants_Tapped"
                                 NumberOfTapsRequired="1" />
                         </Label.GestureRecognizers>
                     </Label>
@@ -37,7 +31,7 @@
                     <Label Text="Plaintiffs" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
-                                Tapped="Cases_Tapped"
+                                Tapped="Plaintiffs_Tapped"
                                 NumberOfTapsRequired="1" />
                         </Label.GestureRecognizers>
                     </Label>
@@ -52,7 +46,7 @@
         <ContentPage Padding="10">
             <ContentPage.Content>
                 <StackLayout Margin="5,30,5,5">
-                    <Label Text="Detail Page" />
+                    <Label Text="Loading, please wait ..." />
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>

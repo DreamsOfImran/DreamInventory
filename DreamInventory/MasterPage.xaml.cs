@@ -11,7 +11,7 @@ namespace DreamInventory
         {
             InitializeComponent();
 
-            Detail = new NavigationPage(new DashboardPage());
+            //Detail = new NavigationPage(new DashboardPage());
         }
 
         void Cases_Tapped(System.Object sender, System.EventArgs e)
@@ -19,10 +19,15 @@ namespace DreamInventory
             Detail = new NavigationPage(new CasesPage());
         }
 
-        void Judgement_Tapped(System.Object sender, System.EventArgs e)
+        void Plaintiffs_Tapped(System.Object sender, System.EventArgs e)
         {
             IsPresented = false;
-            Detail = new NavigationPage(new JudgementPage());
+            Detail = new NavigationPage(new PlaintiffsPage());
+        }
+        void Defendants_Tapped(System.Object sender, System.EventArgs e)
+        {
+            IsPresented = false;
+            Detail = new NavigationPage(new DefendantsPage());
         }
     }
 }

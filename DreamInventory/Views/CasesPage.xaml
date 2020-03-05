@@ -45,7 +45,7 @@
                 </Grid>
             </Frame>
 
-            <ListView ItemsSource="{Binding CasesTest}" RowHeight="60" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="None">
+            <ListView ItemsSource="{Binding CasesCollection}" RowHeight="60" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
