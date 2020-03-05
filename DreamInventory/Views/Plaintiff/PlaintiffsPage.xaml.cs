@@ -4,7 +4,7 @@ using DreamInventory.Services;
 using DreamInventory.ViewModels;
 using Xamarin.Forms;
 
-namespace DreamInventory
+namespace DreamInventory.Views.Plaintiff
 {
     public partial class PlaintiffsPage : ContentPage
     {
