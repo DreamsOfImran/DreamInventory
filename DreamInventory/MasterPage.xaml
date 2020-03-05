@@ -10,6 +10,13 @@
                 <StackLayout Margin="5,30,5,5">
                     <!--<Label Text="|||" FontAttributes="Bold"  />-->
 
+                    <!--sample code for a icon-->
+                    <Label Text="&#xf286;"
+                           FontFamily="{StaticResource FontAwesomeBrands}" />
+
+                    <Label Text="&#xf556;"
+                           FontFamily="{StaticResource FontAwesomeRegular}" />
+
                     <Label Text="Cases" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer
