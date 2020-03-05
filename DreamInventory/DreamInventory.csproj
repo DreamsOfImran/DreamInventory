@@ -19,13 +19,22 @@
     <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
+    <Folder Include="Views\Defendant\" />
+    <Folder Include="Views\Plaintiff\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Helpers\CaseHelper.cs" />
+    <Compile Remove="Helpers\CaseViewModel.cs" />
+    <Compile Remove="ViewModels\CasesViewModel.cs" />
+    <Compile Remove="ViewModels\DefendantsViewModel.cs" />
+    <Compile Remove="ViewModels\PlaintiffsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\Font Awesome 5 Brands-Regular-400.otf" />
     <None Remove="Assets\Font Awesome 5 Free-Solid-900.otf" />
     <None Remove="Assets\Font Awesome 5 Free-Regular-400.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\CasesPage.xaml" />
   </ItemGroup>
 </Project>

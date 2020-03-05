@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using DreamInventory.Services;
 using DreamInventory.ViewModels;
 using Xamarin.Forms;
 
-namespace DreamInventory
+namespace DreamInventory.Views.Plaintiff
 {
     public partial class PlaintiffsPage : ContentPage
     {
+        PlaintiffApiService plaintiffApiService = new PlaintiffApiService();
         public PlaintiffsPage()
         {
             InitializeComponent();
 
-            BindingContext = new PlaintiffsViewModel();
+            BindingContext = plaintiffApiService.GetPlaintiffs();
         }
     }
 }
