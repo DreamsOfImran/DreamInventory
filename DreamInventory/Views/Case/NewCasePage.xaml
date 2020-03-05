@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:DreamInventory.ViewModels"
+    x:Class="DreamInventory.Views.Case.NewCasePage">
+    <ContentPage.BindingContext>
+        <vm:NewCaseViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Entry Text="{Binding Type}" Placeholder="Type" />
+        <Entry Text="{Binding Amount}" Placeholder="Amount" />
+        <Entry Text="{Binding CourtType}" Placeholder="Court Type" />
+        <Entry Text="{Binding CaseType}" Placeholder="Case Type" />
+        <Entry Text="{Binding Judge}" Placeholder="Judge" />
+
+        <Button Command="{Binding AddCaseCommand}" Text="Save" />
+    </StackLayout>
+</ContentPage>

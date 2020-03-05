@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using DreamInventory.Views.Case;
+using DreamInventory.Views.Defendant;
 
 using Xamarin.Forms;
 

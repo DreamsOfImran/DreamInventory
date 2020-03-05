@@ -1,19 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
 
-namespace DreamInventory.ViewModels
+namespace DreamInventory.Services
 {
-    public class CasesViewModel
+    public class DefendantApiService
     {
-        public CasesViewModel()
-        {
-            GetCases();
-        }
-
-        private void GetCases()
+        public ObservableCollection<Defendants> GetDefendants()
         {
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
@@ -26,17 +21,19 @@ namespace DreamInventory.ViewModels
             using (var client = new HttpClient(handler))
             {
                 //send a GET request
-                string uri = "https://localhost:5001/cases?pageNumber=1&pageSize=20";
+                string uri = "https://localhost:5001/defendants?pageNumber=1&pageSize=20";
                 var response = client.GetStringAsync(uri);
                 var result = response.GetAwaiter().GetResult();
 
                 //handling the answer
-                var CasesList = JsonConvert.DeserializeObject<List<Cases>>(result);
+                var DefendantsList = JsonConvert.DeserializeObject<List<Defendants>>(result);
 
-                CasesCollection = new ObservableCollection<Cases>(CasesList);
+                DefendantsCollection = new ObservableCollection<Defendants>(DefendantsList);
+
+                return DefendantsCollection;
             };
         }
 
-        public ObservableCollection<Cases> CasesCollection { get; private set; }
+        public ObservableCollection<Defendants> DefendantsCollection { get; private set; }
     }
 }
