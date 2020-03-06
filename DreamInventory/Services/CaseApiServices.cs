@@ -25,7 +25,7 @@ namespace DreamInventory.Services
             return handler;
         }
 
-        public ObservableCollection<Cases> GetCases()
+        public List<Cases> GetCases()
         {
             using (var client = new HttpClient(GetInsecureHandler()))
             {
@@ -37,15 +37,14 @@ namespace DreamInventory.Services
                 //handling the answer
                 var CasesList = JsonConvert.DeserializeObject<List<Cases>>(result);
 
-                CasesCollection = new ObservableCollection<Cases>(CasesList);
-
-                return CasesCollection;
+                return CasesList;
             };
         }
 
-        public ObservableCollection<Cases> CasesCollection { get; private set; }
-
-        public async Task<bool> AddCaseAsync(string type, decimal? amount, string courtType, string caseType, DateTime? fillingDate, string judge, string docketType, string description, string caseNo, string caseUrl)
+        public async Task<bool> AddCaseAsync(string type, decimal? amount,
+            string courtType, string caseType, DateTime? fillingDate,
+            string judge, string docketType, string description,
+            string caseNo, string caseUrl)
         {
             var client = new HttpClient(GetInsecureHandler());
 
