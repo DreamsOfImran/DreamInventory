@@ -9,12 +9,12 @@ namespace DreamInventory.Views.Case
 {
     public partial class CasesPage : ContentPage
     {
-        CaseApiServices caseApiServices = new CaseApiServices();
+        CaseViewModel newCaseViewModel = new CaseViewModel();
         public CasesPage()
         {
             InitializeComponent();
 
-            BindingContext = caseApiServices.GetCases();
+            BindingContext = newCaseViewModel.GetCaseList();
         }
 
         async void NewCase_Tapped(System.Object sender, System.EventArgs e)
