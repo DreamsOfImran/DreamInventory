@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using DreamInventory.Services;
 using Xamarin.Forms;
 
 namespace DreamInventory.ViewModels
 {
-    public class NewCaseViewModel
+    public class CaseViewModel
     {
-        CaseApiServices _caseApiService = new CaseApiServices();
+        CaseApiServices caseApiService = new CaseApiServices();
 
         public string Type { get; set; }
         public decimal? Amount { get; set; }
@@ -28,7 +29,9 @@ namespace DreamInventory.ViewModels
             {
                 return new Command(async() =>
                 {
-                    var isSuccess = await _caseApiService.AddCaseAsync(Type, Amount, CourtType, CaseType, FillingDate, Judge, DocketType, Description, CaseNo, CaseUrl);
+                    var isSuccess = await caseApiService.AddCaseAsync(Type, Amount,
+                        CourtType, CaseType, FillingDate, Judge, DocketType,
+                        Description, CaseNo, CaseUrl);
 
                     if (isSuccess)
                     {
@@ -40,5 +43,14 @@ namespace DreamInventory.ViewModels
                 });
             }
         }
+
+        public ObservableCollection<Cases> GetCaseList()
+        {
+            var response = caseApiService.GetCases();
+            CasesCollection = new ObservableCollection<Cases>(response);
+            return CasesCollection;
+        }
+
+        public ObservableCollection<Cases> CasesCollection { get; private set; }
     }
 }
