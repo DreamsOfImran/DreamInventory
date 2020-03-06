@@ -5,12 +5,15 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace DreamInventory.Services
 {
     public class CaseApiServices
     {
-        public List<Cases> GetCases()
+        public static string BaseUrl = Device.RuntimePlatform == Device.Android ? "https://10.0.2.2:5001" : "https://localhost:5001";
+
+        public HttpClientHandler GetInsecureHandler()
         {
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
@@ -19,13 +22,17 @@ namespace DreamInventory.Services
                     return true;
                 return errors == System.Net.Security.SslPolicyErrors.None;
             };
+            return handler;
+        }
 
-            using (var client = new HttpClient(handler))
+        public List<Cases> GetCases()
+        {
+            using (var client = new HttpClient(GetInsecureHandler()))
             {
-                //send a GET request
-                string uri = "https://localhost:5001/cases?pageNumber=1&pageSize=20";
+                string uri = $"{BaseUrl}/cases?pageNumber=1&pageSize=20";
                 var response = client.GetStringAsync(uri);
-                var result = response.GetAwaiter().GetResult();
+                var res = response.GetAwaiter();
+                string result = res.GetResult();
 
                 //handling the answer
                 var CasesList = JsonConvert.DeserializeObject<List<Cases>>(result);
@@ -39,7 +46,7 @@ namespace DreamInventory.Services
             string judge, string docketType, string description,
             string caseNo, string caseUrl)
         {
-            var client = new HttpClient();
+            var client = new HttpClient(GetInsecureHandler());
 
             var model = new Cases
             {
@@ -61,7 +68,7 @@ namespace DreamInventory.Services
 
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await client.PostAsync("https://localhost:5001/cases", content);
+            var response = await client.PostAsync($"{BaseUrl}/cases", content);
 
             return response.IsSuccessStatusCode;
         }

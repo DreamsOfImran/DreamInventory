@@ -28,6 +28,8 @@
     <Compile Remove="ViewModels\CasesViewModel.cs" />
     <Compile Remove="ViewModels\DefendantsViewModel.cs" />
     <Compile Remove="ViewModels\PlaintiffsViewModel.cs" />
+    <Compile Remove="Services\BypassSslValidationClientHandler.cs" />
+    <Compile Remove="Services\ApiHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\Font Awesome 5 Brands-Regular-400.otf" />
@@ -36,5 +38,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Views\CasesPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\10.1.3.7\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Java.Interop, Version=0.1.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065" />
   </ItemGroup>
 </Project>

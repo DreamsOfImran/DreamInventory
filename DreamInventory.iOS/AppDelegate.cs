@@ -22,6 +22,14 @@ namespace DreamInventory.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+#if DEBUG
+            System.Net.ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) =>
+            {
+                if (certificate.Issuer.Equals("CN=localhost"))
+                    return true;
+                return sslPolicyErrors == System.Net.Security.SslPolicyErrors.None;
+            };
+#endif
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

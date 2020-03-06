@@ -5,7 +5,7 @@
     xmlns:vm="clr-namespace:DreamInventory.ViewModels"
     x:Class="DreamInventory.Views.Case.NewCasePage">
     <ContentPage.BindingContext>
-        <vm:NewCaseViewModel />
+        <vm:CaseViewModel />
     </ContentPage.BindingContext>
 
     <StackLayout>

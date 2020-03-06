@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace DreamInventory.Services
 {
     public class PlaintiffApiService
     {
-        public ObservableCollection<Plaintiffs> GetPlaintiffs()
+        public static string BaseAddress = Device.RuntimePlatform == Device.Android ? "https://10.0.2.2:5001" : "https://localhost:5001";
+
+        public HttpClientHandler GetInsecureHandler()
         {
             var handler = new HttpClientHandler();
             handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
@@ -17,13 +22,16 @@ namespace DreamInventory.Services
                     return true;
                 return errors == System.Net.Security.SslPolicyErrors.None;
             };
+            return handler;
+        }
 
-            using (var client = new HttpClient(handler))
+        public ObservableCollection<Plaintiffs> GetPlaintiffs()
+        {
+            using (var client = new HttpClient(GetInsecureHandler()))
             {
-                //send a GET request
-                string uri = "https://localhost:5001/plaintiffs?pageNumber=1&pageSize=20";
+                string uri = $"{BaseAddress}/plaintiffs?pageNumber=1&pageSize=20";
                 var response = client.GetStringAsync(uri);
-                var result = response.GetAwaiter().GetResult();
+                string result = response.GetAwaiter().GetResult();
 
                 //handling the answer
                 var PlaintiffsList = JsonConvert.DeserializeObject<List<Plaintiffs>>(result);
@@ -35,5 +43,6 @@ namespace DreamInventory.Services
         }
 
         public ObservableCollection<Plaintiffs> PlaintiffsCollection { get; private set; }
+
     }
 }
