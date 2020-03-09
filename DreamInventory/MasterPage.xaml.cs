@@ -17,23 +17,21 @@ namespace DreamInventory
             //Detail = new NavigationPage(new DashboardPage());
         }
 
-        void Cases_Tapped(System.Object sender, System.EventArgs e)
+        void Cases_Tapped(object sender, EventArgs e)
         {
             IsPresented = false;
             Detail = new NavigationPage(new CasesPage());
         }
 
-        void Plaintiffs_Tapped(System.Object sender, System.EventArgs e)
+        void Plaintiffs_Tapped(object sender, EventArgs e)
         {
             IsPresented = false;
             Detail = new NavigationPage(new PlaintiffsPage());
         }
-        void Defendants_Tapped(System.Object sender, System.EventArgs e)
+        void Defendants_Tapped(object sender, EventArgs e)
         {
             IsPresented = false;
             Detail = new NavigationPage(new DefendantsPage());
         }
     }
 }
-
-

@@ -61,15 +61,10 @@ namespace DreamInventory.ViewModels
             return response;
         }
 
-        public ICommand DeleteCaseCommand
+        public Task<bool> DeleteCase(object CaseID)
         {
-            get
-            {
-                return new Command(() =>
-                {
-                    //caseApiService.DeleteCaseAsync();
-                });
-            }
+            var response = caseApiService.DeleteCaseAsync(CaseID);
+            return response;
         }
     }
 }

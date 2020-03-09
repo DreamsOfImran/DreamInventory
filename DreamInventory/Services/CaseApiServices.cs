@@ -86,5 +86,14 @@ namespace DreamInventory.Services
 
             return response.IsSuccessStatusCode;
         }
+
+        public async Task<bool> DeleteCaseAsync(object CaseID)
+        {
+            var client = new HttpClient(GetInsecureHandler());
+
+            var response = await client.DeleteAsync($"{BaseUrl}/cases/{CaseID}");
+
+            return response.IsSuccessStatusCode;
+        }
     }
 }
