@@ -8,18 +8,111 @@
         <vm:CaseViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout>
-        <Entry Text="{Binding Type}" Placeholder="Type" />
-        <Entry Text="{Binding Amount}" Placeholder="Amount" Keyboard="Numeric" />
-        <Entry Text="{Binding CourtType}" Placeholder="Court Type" />
-        <Entry Text="{Binding CaseType}" Placeholder="Case Type" />
-        <DatePicker Date="{Binding FillingDate}" />
-        <Entry Text="{Binding Judge}" Placeholder="Judge" />
-        <Entry Text="{Binding DocketType}" Placeholder="Docket Type" />
-        <Entry Text="{Binding Description}" Placeholder="Description" />
-        <Entry Text="{Binding CaseNo}" Placeholder="Case No" />
-        <Entry Text="{Binding CaseUrl}" Placeholder="Case URL" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
 
-        <Button Command="{Binding AddCaseCommand}" Text="Save" />
-    </StackLayout>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" Padding="10" Orientation="Horizontal">
+                <Button Text="Cancel" WidthRequest="60" />
+                <Button Command="{Binding AddCaseCommand}" Text="Save" WidthRequest="60" />
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" Padding="10">
+                <Label Text="Type" />
+                <Entry Text="{Binding Type}" HeightRequest="30" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1" Padding="10">
+                <Label Text="Amount" />
+                <Entry Text="{Binding Amount}" HeightRequest="30" Keyboard="Numeric" />
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" Padding="10">
+                <Label Text="Court Type" />
+                <Entry Text="{Binding CourtType}" HeightRequest="30" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1" Padding="10">
+                <Label Text="Case Type" />
+                <Entry Text="{Binding CaseType}" HeightRequest="30" />
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" Padding="10">
+                <Label Text="Filling Date" />
+                <DatePicker Date="{Binding FillingDate}" HeightRequest="30" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1" Padding="10">
+                <Label Text="Judge" />
+                <Entry Text="{Binding Judge}" HeightRequest="30" />
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" Padding="10">
+                <Label Text="Case No" />
+                <Entry Text="{Binding CaseNo}" HeightRequest="30" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1" Padding="10">
+                <Label Text="Case URL" />
+                <Entry Text="{Binding CaseUrl}" HeightRequest="30" />
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" Padding="10">
+                <Label Text="Docket Type" />
+                <Entry Text="{Binding DocketType}" HeightRequest="30" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1" Padding="10">
+                <Label Text="Description" />
+                <Entry Text="{Binding Description}" HeightRequest="30" />
+            </StackLayout>
+        </Grid>
+    </Grid>
 </ContentPage>

@@ -19,6 +19,7 @@ namespace DreamInventory
 
         void Cases_Tapped(System.Object sender, System.EventArgs e)
         {
+            IsPresented = false;
             Detail = new NavigationPage(new CasesPage());
         }
 
@@ -34,3 +35,5 @@ namespace DreamInventory
         }
     }
 }
+
+

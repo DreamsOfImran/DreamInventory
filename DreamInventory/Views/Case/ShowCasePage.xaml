@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:DreamInventory.ViewModels"
+    x:Class="DreamInventory.Views.Case.ShowCasePage">
+
+    <Grid BindingContext="{Binding}" Padding="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.ColumnSpan="2">
+                <Label
+                    Text="{Binding CaseNo, StringFormat='Case ({0})'}"
+                    FontAttributes="Bold"
+                    FontSize="Large" />
+            </StackLayout>
+        </Grid>
+
+
+        <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <Button Text="Edit" WidthRequest="100" BackgroundColor="LightBlue" />
+            <Button Text="Delete" WidthRequest="100" BackgroundColor="Red"  CommandParameter="{Binding Id}" />
+        </StackLayout>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0">
+                <Label Text="Type" FontAttributes="Bold" />
+                <Label Text="{Binding Type}" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1">
+                <Label Text="Amount" FontAttributes="Bold" />
+                <Label Text="{Binding Amount}" />
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0">
+                <Label Text="Court Type" FontAttributes="Bold" />
+                <Label Text="{Binding CourtType}" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1">
+                <Label Text="Case Type" FontAttributes="Bold" />
+                <Label Text="{Binding CaseType}" />
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0">
+                <Label Text="Filling Date" FontAttributes="Bold" />
+                <Label Text="{Binding FillingDate}" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1">
+                <Label Text="Judge" FontAttributes="Bold" />
+                <Label Text="{Binding Judge}" />
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0">
+                <Label Text="Docket Type" FontAttributes="Bold" />
+                <Label Text="{Binding DocketType}" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1">
+                <Label Text="Description" FontAttributes="Bold" />
+                <Label Text="{Binding Description}" />
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0">
+                <Label Text="Case No" FontAttributes="Bold" />
+                <Label Text="{Binding CaseNo}" />
+            </StackLayout>
+
+            <StackLayout Grid.Column="1">
+                <Label Text="Case URL" FontAttributes="Bold" />
+                <Label Text="{Binding CaseUrl}" />
+            </StackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

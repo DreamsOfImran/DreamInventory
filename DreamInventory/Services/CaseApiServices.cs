@@ -41,6 +41,20 @@ namespace DreamInventory.Services
             };
         }
 
+        public Cases GetSelectedCase(object selectedCase)
+        {
+            var client = new HttpClient();
+
+            var requestedCaseId = selectedCase.GetType().GetProperty("Id").GetValue(selectedCase, null);
+
+            var response = client.GetStringAsync($"https://localhost:5001/cases/{requestedCaseId}");
+            var result = response.GetAwaiter().GetResult();
+
+            var SelectedCase = JsonConvert.DeserializeObject<Cases>(result);
+
+            return SelectedCase;
+        }
+
         public async Task<bool> AddCaseAsync(string type, decimal? amount,
             string courtType, string caseType, DateTime? fillingDate,
             string judge, string docketType, string description,
