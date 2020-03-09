@@ -25,8 +25,7 @@
             </Grid.ColumnDefinitions>
 
             <StackLayout Grid.Column="0" Padding="10" Orientation="Horizontal">
-                <Button Text="Cancel" WidthRequest="60" />
-                <Button Command="{Binding AddCaseCommand}" Text="Save" WidthRequest="60" />
+                <Button Command="{Binding AddCaseCommand}" Text="Save" WidthRequest="60" BackgroundColor="#4db2ff" />
             </StackLayout>
         </Grid>
 

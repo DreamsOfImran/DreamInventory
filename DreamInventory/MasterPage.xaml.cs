@@ -14,7 +14,7 @@ namespace DreamInventory
         {
             InitializeComponent();
 
-            //Detail = new NavigationPage(new DashboardPage());
+            Detail = new NavigationPage(new CasesPage());
         }
 
         void Cases_Tapped(object sender, EventArgs e)

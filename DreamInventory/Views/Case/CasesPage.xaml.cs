@@ -15,9 +15,9 @@ namespace DreamInventory.Views.Case
             InitializeComponent();
         }
 
-        async void NewCase_Tapped(object sender, EventArgs e)
+        void NewCase_Tapped(object sender, EventArgs e)
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new NewCasePage());
+            Navigation.PushAsync(new NewCasePage());
         }
 
         void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

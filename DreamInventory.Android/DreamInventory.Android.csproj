@@ -94,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DreamInventory\DreamInventory.csproj">
-      <Project>{18A90049-E2DF-4FFB-98CF-E92A3A9A7122}</Project>
+      <Project>{23965CE4-DDE0-4142-B5DC-7F17C41A2AE1}</Project>
       <Name>DreamInventory</Name>
     </ProjectReference>
   </ItemGroup>
