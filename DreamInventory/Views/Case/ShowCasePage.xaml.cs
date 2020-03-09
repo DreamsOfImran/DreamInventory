@@ -15,8 +15,23 @@ namespace DreamInventory.Views.Case
             BindingContext = caseViewModel.SelectedCase(selectedCase);
         }
 
-        void DeleteButton_Clicked(object sender, EventArgs e)
+        async void DeleteButton_ClickedAsync(object sender, EventArgs e)
         {
+            var CaseID = ((Button)sender).CommandParameter;
+
+            var isDeleted = await caseViewModel.DeleteCase(CaseID);
+            if (isDeleted)
+            {
+                await DisplayAlert("Success", "Case Deleted Successfully", "OK");
+                await Navigation.PopAsync();
+            }
+            else
+                await DisplayAlert("Failed", "Something Went Wrong!!!", "Try Again");
+        }
+
+        void EditButton_Clicked(object sender, EventArgs e)
+        {
+            var ToBeEdited = ((Button)sender).CommandParameter;
 
         }
     }

@@ -32,8 +32,8 @@
 
 
         <StackLayout Grid.Row="1" Orientation="Horizontal">
-            <Button Text="Edit" WidthRequest="100" BackgroundColor="LightBlue" />
-            <Button Text="Delete" WidthRequest="100" BackgroundColor="Red"  CommandParameter="{Binding Id}" />
+            <Button Text="Edit" WidthRequest="100" BackgroundColor="LightBlue" Clicked="EditButton_Clicked" CommandParameter="{Binding}" />
+            <Button Text="Delete" WidthRequest="100" BackgroundColor="Red" Clicked="DeleteButton_ClickedAsync" CommandParameter="{Binding Id}" />
         </StackLayout>
 
         <Grid Grid.Row="2">

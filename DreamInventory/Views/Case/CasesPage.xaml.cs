@@ -13,8 +13,6 @@ namespace DreamInventory.Views.Case
         public CasesPage()
         {
             InitializeComponent();
-
-            BindingContext = newCaseViewModel.GetCaseList();
         }
 
         async void NewCase_Tapped(object sender, EventArgs e)
@@ -27,6 +25,13 @@ namespace DreamInventory.Views.Case
             var SelectedCase = e.Item;
 
             Navigation.PushAsync(new ShowCasePage(SelectedCase));
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            BindingContext = newCaseViewModel.GetCaseList();
         }
     }
 }

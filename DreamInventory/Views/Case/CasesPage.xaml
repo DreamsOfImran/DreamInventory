@@ -73,16 +73,11 @@
             </Frame>
 
             <ListView ItemsSource="{Binding}" ItemTapped="ListView_ItemTapped" RowHeight="60" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="Single">
-                <!--<ListView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="ShowCase_Tapped" CommandParameter="{Binding Id}" NumberOfTapsRequired="1" />
-                </ListView.GestureRecognizers>-->
-
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Frame>
                                 <Grid>
-
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="AUTO" />
                                         <ColumnDefinition Width="*" />
