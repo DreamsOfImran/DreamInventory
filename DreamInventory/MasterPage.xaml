@@ -5,46 +5,75 @@
     NavigationPage.HasNavigationBar="false"
     x:Class="DreamInventory.MasterPage">
     <MasterDetailPage.Master>
-        <ContentPage Padding="10" BackgroundColor="LightGray" Title="Master">
+        <ContentPage Padding="5" BackgroundColor="#D6D6D6" Title="Menu">
             <ContentPage.Content>
-                <StackLayout Margin="5,30,5,5">
-                    <!--<Label Text="|||" FontAttributes="Bold"  />-->
+                <Grid Margin="0,50,0,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                    <!--sample code for a icon-->
-                    <Label Text="&#xf286;"
-                           FontFamily="{StaticResource FontAwesomeBrands}" />
+                    <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="#4db2ff" HeightRequest="120" Orientation="Horizontal" Padding="5">
+                        <!--<Label Text="|||" FontAttributes="Bold"  />-->
 
-                    <Label Text="&#xf556;"
-                           FontFamily="{StaticResource FontAwesomeRegular}" />
+                        <!--sample code for a icon-->
+                        <!--<Label Text="&#xf286;"
+                               FontFamily="{StaticResource FontAwesomeBrands}" />
 
-                    <Label Text="Cases" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Tapped="Cases_Tapped"
-                                NumberOfTapsRequired="1" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <BoxView WidthRequest="1" HeightRequest="1" Color="Black"></BoxView>
+                        <Label Text="&#xf556;"
+                               FontFamily="{StaticResource FontAwesomeRegular}" />-->
+                        <Frame HeightRequest="25" WidthRequest="25" CornerRadius="30" VerticalOptions="Center" 
+                           BackgroundColor="White" Margin="10" HasShadow="False">
+                            <Label Text="W" FontAttributes="Bold" FontSize="Large" TextColor="#4db2ff" 
+                               VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="-1"/>
+                        </Frame>
+                        <StackLayout VerticalOptions="Center" Spacing="2">
+                            <Label Text="Wolfy" FontAttributes="Bold" FontSize="Large" TextColor="White" 
+                               Margin="10,0,0,0" VerticalOptions="Center"/>
+                            <Label Text="wolfmaster@gmail.com" FontSize="Small" TextColor="White" 
+                               Margin="10,0,0,0" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                    
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="40" />
+                            </Grid.RowDefinitions>
+                            <StackLayout Grid.Row="0">
+                                <Label Text="Cases" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5" FontAttributes="Bold">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="Cases_Tapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Grid.Row="1">
+                                <Label Text="Defendants" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5" FontAttributes="Bold">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="Defendants_Tapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Grid.Row="2">
+                                <Label Text="Plaintiffs" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5" FontAttributes="Bold">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="Plaintiffs_Tapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </Grid>
+                      
+                    </Grid>
 
-                    <Label Text="Defendants" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Tapped="Defendants_Tapped"
-                                NumberOfTapsRequired="1" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <BoxView WidthRequest="1" HeightRequest="1" Color="Black"></BoxView>
-
-                    <Label Text="Plaintiffs" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Tapped="Plaintiffs_Tapped"
-                                NumberOfTapsRequired="1" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <BoxView WidthRequest="1" HeightRequest="1" Color="Black"></BoxView>
-
-                </StackLayout>
+                </Grid>
             </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>
