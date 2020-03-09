@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using DreamInventory.Services;
 using Xamarin.Forms;
@@ -52,5 +53,23 @@ namespace DreamInventory.ViewModels
         }
 
         public ObservableCollection<Cases> CasesCollection { get; private set; }
+
+        public Cases SelectedCase(object selectedCase)
+        {
+            var response = caseApiService.GetSelectedCase(selectedCase);
+
+            return response;
+        }
+
+        public ICommand DeleteCaseCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    //caseApiService.DeleteCaseAsync();
+                });
+            }
+        }
     }
 }

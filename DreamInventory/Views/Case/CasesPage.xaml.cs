@@ -17,9 +17,16 @@ namespace DreamInventory.Views.Case
             BindingContext = newCaseViewModel.GetCaseList();
         }
 
-        async void NewCase_Tapped(System.Object sender, System.EventArgs e)
+        async void NewCase_Tapped(object sender, EventArgs e)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new NewCasePage());
+            await Application.Current.MainPage.Navigation.PushAsync(new NewCasePage());
+        }
+
+        void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var SelectedCase = e.Item;
+
+            Navigation.PushAsync(new ShowCasePage(SelectedCase));
         }
     }
 }

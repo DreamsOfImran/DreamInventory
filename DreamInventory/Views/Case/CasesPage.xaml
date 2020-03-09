@@ -15,18 +15,40 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackLayout Grid.Column="0">
-                <Label Text="+ Add Case" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="NewCase_Tapped" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0">
+                    <Label Text="{Binding Count, StringFormat='Cases ({0})'}" FontAttributes="Bold" FontSize="Large" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="1">
+                    <Label Text="+ Add Case" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="NewCase_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="1" HorizontalOptions="End" Padding="30, 0">
+                    <Entry Placeholder="Search" WidthRequest="200" HeightRequest="30" />
+                </StackLayout>
+            </Grid>
         </Grid>
 
         <StackLayout Grid.Row="1" Padding="0">
             <Frame BackgroundColor="Crimson" BorderColor="DarkSlateGray" Padding="0">
-                <Grid Padding="0">
+                <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="AUTO" />
                         <ColumnDefinition Width="*" />
@@ -40,22 +62,27 @@
                     <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="2" />
                     <Label Margin="10,0,10,0" Text="Filling Date" VerticalOptions="Center" Grid.Column="3" />
                     <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="4" />
-                                        
+
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                                     
+
                 </Grid>
             </Frame>
 
-            <ListView ItemsSource="{Binding}" RowHeight="60" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="None">
+            <ListView ItemsSource="{Binding}" ItemTapped="ListView_ItemTapped" RowHeight="60" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="Single">
+                <!--<ListView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ShowCase_Tapped" CommandParameter="{Binding Id}" NumberOfTapsRequired="1" />
+                </ListView.GestureRecognizers>-->
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Frame>
                                 <Grid>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="AUTO" />
                                         <ColumnDefinition Width="*" />
