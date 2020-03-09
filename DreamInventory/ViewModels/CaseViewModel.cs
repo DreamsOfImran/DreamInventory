@@ -37,7 +37,7 @@ namespace DreamInventory.ViewModels
                     if (isSuccess)
                     {
                         await App.Current.MainPage.DisplayAlert("Success", "New Case Added Successfully", "OK");
-                        await App.Current.MainPage.Navigation.PopAsync();
+                        await App.Current.MainPage.Navigation.PushAsync(new MasterPage());
                     }
                     else
                         await App.Current.MainPage.DisplayAlert("Failed", "Something Went Wrong!!!", "Try Again");

@@ -24,13 +24,13 @@
                                FontFamily="{StaticResource FontAwesomeRegular}" />-->
                         <Frame HeightRequest="25" WidthRequest="25" CornerRadius="30" VerticalOptions="Center" 
                            BackgroundColor="White" Margin="10" HasShadow="False">
-                            <Label Text="W" FontAttributes="Bold" FontSize="Large" TextColor="#4db2ff" 
+                            <Label Text="D" FontAttributes="Bold" FontSize="Large" TextColor="#4db2ff" 
                                VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="-1"/>
                         </Frame>
                         <StackLayout VerticalOptions="Center" Spacing="2">
-                            <Label Text="Wolfy" FontAttributes="Bold" FontSize="Large" TextColor="White" 
+                            <Label Text="Dream Inventory" FontAttributes="Bold" FontSize="Large" TextColor="White" 
                                Margin="10,0,0,0" VerticalOptions="Center"/>
-                            <Label Text="wolfmaster@gmail.com" FontSize="Small" TextColor="White" 
+                            <Label Text="A sample application using Xamarin" FontSize="Small" TextColor="White" 
                                Margin="10,0,0,0" VerticalOptions="Center"/>
                         </StackLayout>
                     </StackLayout>
