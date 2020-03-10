@@ -88,13 +88,17 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\drawable\Gavel_Logo.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DreamInventory\DreamInventory.csproj">
-      <Project>{23965CE4-DDE0-4142-B5DC-7F17C41A2AE1}</Project>
+      <Project>{18A90049-E2DF-4FFB-98CF-E92A3A9A7122}</Project>
       <Name>DreamInventory</Name>
     </ProjectReference>
   </ItemGroup>

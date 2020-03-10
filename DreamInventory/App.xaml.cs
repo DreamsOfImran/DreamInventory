@@ -10,7 +10,7 @@ namespace DreamInventory
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MasterPage());
+            MainPage = new NavigationPage(new SplashPage());
         }
 
         protected override void OnStart()

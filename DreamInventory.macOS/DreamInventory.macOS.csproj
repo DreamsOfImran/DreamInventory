@@ -111,6 +111,7 @@
     <BundleResource Include="Resources\Fonts\FontAwesome5Solid.otf" />
     <BundleResource Include="Resources\Fonts\FontAwesome5Regular.otf" />
     <BundleResource Include="Resources\Fonts\FontAwesome5Brands.otf" />
+    <BundleResource Include="Resources\Gavel_Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.4.5.0.356\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.5.0.356\build\Xamarin.Forms.targets')" />

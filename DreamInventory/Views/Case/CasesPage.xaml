@@ -34,7 +34,7 @@
                     </StackLayout>
 
                     <StackLayout Grid.Row="1">
-                        <Label Text="+ Add Case" >
+                        <Label Text="+ Add Case" TextColor="#147efb" >
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="NewCase_Tapped" />
                             </Label.GestureRecognizers>
