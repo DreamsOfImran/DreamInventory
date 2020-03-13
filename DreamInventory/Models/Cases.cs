@@ -20,4 +20,11 @@ namespace DreamInventory
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
+
+    public class CaseData
+    {
+        public long TotalCount;
+
+        public List<Cases> cases;
+    }
 }

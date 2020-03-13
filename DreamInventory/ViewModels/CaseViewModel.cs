@@ -2,12 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Collections.Generic;
 using DreamInventory.Services;
 using Xamarin.Forms;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using DreamInventory.Models;
 
 namespace DreamInventory.ViewModels
 {
