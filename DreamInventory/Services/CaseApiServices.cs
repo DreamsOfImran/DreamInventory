@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using DreamInventory.Models;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 
@@ -25,17 +27,17 @@ namespace DreamInventory.Services
             return handler;
         }
 
-        public List<Cases> GetCases()
+        public CaseData GetCases(int pageNumber)
         {
             using (var client = new HttpClient(GetInsecureHandler()))
             {
-                string uri = $"{BaseUrl}/cases?pageNumber=1&pageSize=20";
+                string uri = $"{BaseUrl}/cases?pageNumber={pageNumber}&pageSize=10";
                 var response = client.GetStringAsync(uri);
-                var res = response.GetAwaiter();
-                string result = res.GetResult();
+                string result = response.GetAwaiter().GetResult();
+
 
                 //handling the answer
-                var CasesList = JsonConvert.DeserializeObject<List<Cases>>(result);
+                var CasesList = JsonConvert.DeserializeObject<CaseData>(result);
 
                 return CasesList;
             };

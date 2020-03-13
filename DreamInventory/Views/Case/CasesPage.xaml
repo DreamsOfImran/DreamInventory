@@ -46,13 +46,20 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Row="1" HorizontalOptions="End" Padding="30, 0">
                         <Entry Placeholder="Search" WidthRequest="200" HeightRequest="30" />
                     </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="End" Padding="30, 0">
+                        <Button Text="Previous" x:Name="previousButton" HorizontalOptions="Start" Clicked="PreviousButton_Clicked"/>
+                        <Button Text="Next" x:Name="nextButton" HorizontalOptions="End" Clicked="NextButton_Clicked"/>
+                    </StackLayout>
                 </Grid>
             </Grid>
+
+
 
             <StackLayout Grid.Row="1" Padding="0">
                 <Frame BackgroundColor="#4db2ff" Padding="0" Margin="0,20,0,10">

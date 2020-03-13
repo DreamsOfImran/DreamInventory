@@ -2,8 +2,12 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Collections.Generic;
 using DreamInventory.Services;
 using Xamarin.Forms;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using DreamInventory.Models;
 
 namespace DreamInventory.ViewModels
 {
@@ -45,11 +49,10 @@ namespace DreamInventory.ViewModels
             }
         }
 
-        public ObservableCollection<Cases> GetCaseList()
+        public CaseData GetCaseList(int pageNumber)
         {
-            var response = caseApiService.GetCases();
-            CasesCollection = new ObservableCollection<Cases>(response);
-            return CasesCollection;
+            var response = caseApiService.GetCases(pageNumber);
+            return response;
         }
 
         public ObservableCollection<Cases> CasesCollection { get; private set; }
