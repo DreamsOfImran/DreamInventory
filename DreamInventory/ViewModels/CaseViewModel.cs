@@ -45,11 +45,10 @@ namespace DreamInventory.ViewModels
             }
         }
 
-        public ObservableCollection<Cases> GetCaseList()
+        public CaseData GetCaseList(int pageNumber)
         {
-            var response = caseApiService.GetCases();
-            CasesCollection = new ObservableCollection<Cases>(response);
-            return CasesCollection;
+            var response = caseApiService.GetCases(pageNumber);
+            return response;
         }
 
         public ObservableCollection<Cases> CasesCollection { get; private set; }
