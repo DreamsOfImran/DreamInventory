@@ -13,11 +13,11 @@
         </StackLayout.Margin>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100" />
+                <RowDefinition Height="160" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" x:Name="DesktopHeaderBar" IsVisible="False">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -59,10 +59,45 @@
                 </Grid>
             </Grid>
 
+            <Grid Grid.Row="0" x:Name="MobileHeaderBar" IsVisible="False" Padding="5, 10, 5, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
 
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0">
+                        <Label Text="{Binding Count, StringFormat='Cases ({0})'}" FontAttributes="Bold" FontSize="Large" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="+ Add Case" TextColor="#147efb" FontSize="16" HorizontalOptions="End" Padding="0, 5, 0, 0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NewCase_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Entry Placeholder="Search" WidthRequest="200" HeightRequest="40" />
+                </Grid>
+
+                <Grid Grid.Row="2" Padding="5, 10, 5, 0">
+                    <Button Text="Previous" x:Name="previousButtonMob" HorizontalOptions="Start" Clicked="PreviousButton_Clicked" FontAttributes="Bold" FontSize="16"/>
+                    <Button Text="Next" x:Name="nextButtonMob" HorizontalOptions="End" Clicked="NextButton_Clicked" FontAttributes="Bold" FontSize="16"/>
+                </Grid>
+
+            </Grid>
 
             <StackLayout Grid.Row="1" Padding="0">
-                <Frame BackgroundColor="#4db2ff" Padding="0" Margin="0,20,0,10">
+                <Frame BackgroundColor="#147efb" Padding="0" Margin="0,0,0,10">
                     <Grid HeightRequest="50">
                         <Grid.Margin>
                             <OnPlatform x:TypeArguments="Thickness">
@@ -79,17 +114,17 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Margin="10,0,10,0" Text="ID" VerticalOptions="Center" Grid.Column="0" LineHeight="0" />
-                        <Label Margin="10,0,10,0" Text="Case No" VerticalOptions="Center" Grid.Column="1" />
-                        <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="2" />
-                        <Label Margin="10,0,10,0" Text="Filling Date" VerticalOptions="Center" Grid.Column="3" />
-                        <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="4" />
+                        <Label Margin="10,0,10,0" Text="ID" VerticalOptions="Center" Grid.Column="0" LineHeight="0" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" Text="Case No" VerticalOptions="Center" Grid.Column="1" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="2" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" Text="Filling Date" VerticalOptions="Center" Grid.Column="3" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="4" TextColor="White" FontAttributes="Bold" />
 
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     </Grid>
                 </Frame>
 

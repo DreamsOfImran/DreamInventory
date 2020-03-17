@@ -8,110 +8,214 @@
         <vm:CaseViewModel />
     </ContentPage.BindingContext>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="60" />
-            <RowDefinition Height="60" />
-            <RowDefinition Height="60" />
-            <RowDefinition Height="60" />
-            <RowDefinition Height="60" />
-        </Grid.RowDefinitions>
+    <StackLayout>
 
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <Grid x:Name="DesktopNewCaseForm" IsVisible="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
 
-            <StackLayout Grid.Column="0" Padding="10" Orientation="Horizontal">
-                <Button Command="{Binding AddCaseCommand}" Text="Save" WidthRequest="60" BackgroundColor="#4db2ff" />
-            </StackLayout>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="10" Orientation="Horizontal">
+                    <Button Command="{Binding AddCaseCommand}" Text="Save" WidthRequest="60" BackgroundColor="#4db2ff" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="10">
+                    <Label Text="Type" />
+                    <Entry Text="{Binding Type}" HeightRequest="30" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Padding="10">
+                    <Label Text="Amount" />
+                    <Entry Text="{Binding Amount}" HeightRequest="30" Keyboard="Numeric" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="10">
+                    <Label Text="Court Type" />
+                    <Entry Text="{Binding CourtType}" HeightRequest="30" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Padding="10">
+                    <Label Text="Case Type" />
+                    <Entry Text="{Binding CaseType}" HeightRequest="30" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="10">
+                    <Label Text="Filling Date" />
+                    <DatePicker Date="{Binding FillingDate}" HeightRequest="30" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Padding="10">
+                    <Label Text="Judge" />
+                    <Entry Text="{Binding Judge}" HeightRequest="30" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="10">
+                    <Label Text="Case No" />
+                    <Entry Text="{Binding CaseNo}" HeightRequest="30" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Padding="10">
+                    <Label Text="Case URL" />
+                    <Entry Text="{Binding CaseUrl}" HeightRequest="30" Keyboard="Url" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="10">
+                    <Label Text="Docket Type" />
+                    <Entry Text="{Binding DocketType}" HeightRequest="30" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Padding="10">
+                    <Label Text="Description" />
+                    <Entry Text="{Binding Description}" HeightRequest="30" />
+                </StackLayout>
+            </Grid>
+
         </Grid>
 
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <StackLayout Grid.Column="0" Padding="10">
-                <Label Text="Type" />
-                <Entry Text="{Binding Type}" HeightRequest="30" />
+        <StackLayout x:Name="MobileNewCaseForm" IsVisible="False" Padding="20">
+            <StackLayout>
+                <Label Text="Add Case Details"
+                       FontAttributes="Bold"
+                       FontSize="Large" />
             </StackLayout>
 
-            <StackLayout Grid.Column="1" Padding="10">
-                <Label Text="Amount" />
-                <Entry Text="{Binding Amount}" HeightRequest="30" Keyboard="Numeric" />
-            </StackLayout>
-        </Grid>
-
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <StackLayout Grid.Column="0" Padding="10">
-                <Label Text="Court Type" />
-                <Entry Text="{Binding CourtType}" HeightRequest="30" />
+            <StackLayout Padding="0, 20, 0, 0">
+                <Entry Text="{Binding Type}"
+                       HeightRequest="40"
+                       Placeholder="Type"
+                       PlaceholderColor="#333333"
+                       ClearButtonVisibility="WhileEditing" />
             </StackLayout>
 
-            <StackLayout Grid.Column="1" Padding="10">
-                <Label Text="Case Type" />
-                <Entry Text="{Binding CaseType}" HeightRequest="30" />
-            </StackLayout>
-        </Grid>
-
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <StackLayout Grid.Column="0" Padding="10">
-                <Label Text="Filling Date" />
-                <DatePicker Date="{Binding FillingDate}" HeightRequest="30" />
+            <StackLayout Padding="0, 20, 0, 0">
+                <Entry Text="{Binding Amount}"
+                       HeightRequest="40"
+                       Keyboard="Numeric"
+                       Placeholder="Amount"
+                       PlaceholderColor="#333333"
+                       ClearButtonVisibility="WhileEditing" />
             </StackLayout>
 
-            <StackLayout Grid.Column="1" Padding="10">
-                <Label Text="Judge" />
-                <Entry Text="{Binding Judge}" HeightRequest="30" />
-            </StackLayout>
-        </Grid>
-
-        <Grid Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <StackLayout Grid.Column="0" Padding="10">
-                <Label Text="Case No" />
-                <Entry Text="{Binding CaseNo}" HeightRequest="30" />
+            <StackLayout Padding="0, 20, 0, 0">
+                <Entry Text="{Binding CourtType}"
+                       HeightRequest="40"
+                       Placeholder="Court Type"
+                       PlaceholderColor="#333333"
+                       ClearButtonVisibility="WhileEditing" />
             </StackLayout>
 
-            <StackLayout Grid.Column="1" Padding="10">
-                <Label Text="Case URL" />
-                <Entry Text="{Binding CaseUrl}" HeightRequest="30" />
-            </StackLayout>
-        </Grid>
-
-        <Grid Grid.Row="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <StackLayout Grid.Column="0" Padding="10">
-                <Label Text="Docket Type" />
-                <Entry Text="{Binding DocketType}" HeightRequest="30" />
+            <StackLayout Padding="0, 20, 0, 0">
+                <Entry Text="{Binding CaseType}"
+                       HeightRequest="40"
+                       Placeholder="Case Type"
+                       PlaceholderColor="#333333"
+                       ClearButtonVisibility="WhileEditing" />
             </StackLayout>
 
-            <StackLayout Grid.Column="1" Padding="10">
-                <Label Text="Description" />
-                <Entry Text="{Binding Description}" HeightRequest="30" />
+            <StackLayout Padding="0, 20, 0, 0">
+                <DatePicker Date="{Binding FillingDate}"
+                            HeightRequest="40"
+                            TextColor="#333333" />
             </StackLayout>
-        </Grid>
-    </Grid>
+
+            <StackLayout Padding="0, 20, 0, 0">
+                <Entry Text="{Binding Judge}"
+                       HeightRequest="40"
+                       Placeholder="Judge Name"
+                       PlaceholderColor="#333333"
+                       ClearButtonVisibility="WhileEditing" />
+            </StackLayout>
+
+            <StackLayout Padding="0, 20, 0, 0">
+                <Entry Text="{Binding CaseNo}"
+                       HeightRequest="40"
+                       Placeholder="Case Number"
+                       PlaceholderColor="#333333"
+                       ClearButtonVisibility="WhileEditing" />
+            </StackLayout>
+
+            <StackLayout Padding="0, 20, 0, 0">
+                <Entry Text="{Binding CaseUrl}"
+                       HeightRequest="40"
+                       Keyboard="Url"
+                       Placeholder="Case URL"
+                       PlaceholderColor="#333333"
+                       ClearButtonVisibility="WhileEditing" />
+            </StackLayout>
+
+            <StackLayout Padding="0, 20, 0, 0">
+                <Entry Text="{Binding DocketType}"
+                       HeightRequest="40"
+                       Placeholder="Docket Type"
+                       PlaceholderColor="#333333"
+                       ClearButtonVisibility="WhileEditing" />
+            </StackLayout>
+
+            <StackLayout Padding="0, 20, 0, 0">
+                <Entry Text="{Binding Description}"
+                       HeightRequest="40"
+                       Placeholder="Description"
+                       PlaceholderColor="#333333"
+                       ClearButtonVisibility="WhileEditing" />
+            </StackLayout>
+
+            <StackLayout Padding="0, 20, 0, 0">
+                <Button Command="{Binding AddCaseCommand}"
+                        Text="Save"
+                        WidthRequest="100"
+                        BackgroundColor="#147efb"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        FontSize="16" />
+            </StackLayout>
+        </StackLayout>
+
+    </StackLayout>
+
 </ContentPage>

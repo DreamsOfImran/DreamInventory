@@ -16,7 +16,7 @@ namespace DreamInventory.macOS
         public AppDelegate()
         {
             var style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
-            var rect = new CoreGraphics.CGRect(100, 100, 1024, 768);
+            var rect = new CoreGraphics.CGRect(100, 100, 1600, 1200);
 
             window = new NSWindow(rect, style, NSBackingStore.Buffered, false);
 

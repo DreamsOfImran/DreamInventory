@@ -28,7 +28,7 @@
             </Grid>
 
             <StackLayout Grid.Row="1" Padding="0">
-                <Frame BackgroundColor="#4db2ff" Padding="0" Margin="0,20,0,10">
+                <Frame BackgroundColor="#147efb" Padding="0" Margin="0,20,0,10">
                     <Grid HeightRequest="50">
                         <Grid.Margin>
                             <OnPlatform x:TypeArguments="Thickness">
@@ -45,17 +45,17 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Margin="10,0,10,0" Text="ID" VerticalOptions="Center" Grid.Column="0" />
-                        <Label Margin="10,0,10,0" Text="Case ID" VerticalOptions="Center" Grid.Column="1" />
-                        <Label Margin="10,0,10,0" Text="First Name" VerticalOptions="Center" Grid.Column="2" />
-                        <Label Margin="10,0,10,0" Text="Last Name" VerticalOptions="Center" Grid.Column="3" />
-                        <Label Margin="10,0,10,0" Text="Attorney" VerticalOptions="Center" Grid.Column="4" />
+                        <Label Margin="10,0,10,0" Text="ID" VerticalOptions="Center" Grid.Column="0" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" Text="Case ID" VerticalOptions="Center" Grid.Column="1" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" Text="First Name" VerticalOptions="Center" Grid.Column="2" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" Text="Last Name" VerticalOptions="Center" Grid.Column="3" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" Text="Attorney" VerticalOptions="Center" Grid.Column="4" TextColor="White" FontAttributes="Bold" />
                                         
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
 
                     </Grid>
                 </Frame>

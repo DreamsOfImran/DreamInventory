@@ -10,6 +10,17 @@ namespace DreamInventory.Views.Case
         public NewCasePage()
         {
             InitializeComponent();
+
+            if(Device.RuntimePlatform == Device.macOS)
+            {
+                MobileNewCaseForm.IsVisible = false;
+                DesktopNewCaseForm.IsVisible = true;
+            }
+            else
+            {
+                MobileNewCaseForm.IsVisible = true;
+                DesktopNewCaseForm.IsVisible = false;
+            }
         }
     }
 }
