@@ -50,7 +50,7 @@
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Row="1" HorizontalOptions="End" Padding="30, 0">
-                        <Entry Placeholder="Search" WidthRequest="200" HeightRequest="30" />
+                        <Entry Placeholder="Search" WidthRequest="200" HeightRequest="30" Completed="search_event"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="End" Padding="30, 0">
                         <Button Text="Previous" x:Name="previousButton" HorizontalOptions="Start" Clicked="PreviousButton_Clicked"/>
@@ -86,7 +86,7 @@
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <Entry Placeholder="Search" WidthRequest="200" HeightRequest="40" />
+                    <Entry Placeholder="Search" WidthRequest="200" HeightRequest="40" Completed="search_event"/>
                 </Grid>
 
                 <Grid Grid.Row="2" Padding="5, 10, 5, 0">
@@ -107,24 +107,37 @@
                             </OnPlatform>
                         </Grid.Margin>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="AUTO" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Margin="10,0,10,0" Text="ID" VerticalOptions="Center" Grid.Column="0" LineHeight="0" TextColor="White" FontAttributes="Bold" />
-                        <Label Margin="10,0,10,0" Text="Case No" VerticalOptions="Center" Grid.Column="1" TextColor="White" FontAttributes="Bold" />
-                        <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="2" TextColor="White" FontAttributes="Bold" />
-                        <Label Margin="10,0,10,0" Text="Filling Date" VerticalOptions="Center" Grid.Column="3" TextColor="White" FontAttributes="Bold" />
-                        <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="4" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" x:Name="CaseNo" Text="Case No" VerticalOptions="Center" Grid.Column="0" TextColor="White" FontAttributes="Bold" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TableHeader_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="1" TextColor="White" FontAttributes="Bold" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TableHeader_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Margin="10,0,10,0" Text="Filling Date" VerticalOptions="Center" Grid.Column="2" TextColor="White" FontAttributes="Bold" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TableHeader_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="3" TextColor="White" FontAttributes="Bold" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TableHeader_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     </Grid>
                 </Frame>
 
@@ -135,18 +148,16 @@
                                 <Frame>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="AUTO" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding Id}" VerticalOptions="Center" Grid.Column="0" />
-                                        <Label Text="{Binding CaseNo}" VerticalOptions="Center" Grid.Column="1" />
-                                        <Label Text="{Binding CaseType}" VerticalOptions="Center" Grid.Column="2" />
-                                        <Label Text="{Binding FillingDate}" VerticalOptions="Center" Grid.Column="3" />
-                                        <Label Text="{Binding Judge}" VerticalOptions="Center" Grid.Column="4" />
+                                        <Label Text="{Binding CaseNo}" VerticalOptions="Center" Grid.Column="0" />
+                                        <Label Text="{Binding CaseType}" VerticalOptions="Center" Grid.Column="1" />
+                                        <Label Text="{Binding FillingDate}" VerticalOptions="Center" Grid.Column="2" />
+                                        <Label Text="{Binding Judge}" VerticalOptions="Center" Grid.Column="3" />
                                     </Grid>
                                 </Frame>
                             </ViewCell>
