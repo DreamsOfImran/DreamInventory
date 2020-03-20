@@ -23,16 +23,20 @@ namespace DreamInventory.Services
             return handler;
         }
 
-        public CaseData GetCases(int pageNumber)
+        public CaseData GetCases(int pageNumber,string sortQuery, string searchQuery)
         {
             using (var client = new HttpClient(GetInsecureHandler()))
             {
                 string uri = $"{BaseUrl}/cases?pageNumber={pageNumber}&pageSize=10";
+                if(sortQuery != "")
+                    uri += $"&sort={sortQuery}";
+
+                if(searchQuery != "")
+                    uri += $"&search={searchQuery}";
+
                 var response = client.GetStringAsync(uri);
                 string result = response.GetAwaiter().GetResult();
 
-
-                //handling the answer
                 var CasesList = JsonConvert.DeserializeObject<CaseData>(result);
 
                 return CasesList;

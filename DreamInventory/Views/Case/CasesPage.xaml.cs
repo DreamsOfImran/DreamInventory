@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using DreamInventory.Services;
 using DreamInventory.ViewModels;
 using DreamInventory.Views;
@@ -11,7 +12,10 @@ namespace DreamInventory.Views.Case
     {
         public int pageNumber = 1;
         public int pageSize = 10;
+        public string sortQuery = "";
+        public string searchQuery = "";
         CaseViewModel newCaseViewModel = new CaseViewModel();
+
         public CasesPage()
         {
             InitializeComponent();
@@ -45,9 +49,9 @@ namespace DreamInventory.Views.Case
 
         protected override void OnAppearing()
         {
+            BindingContext = newCaseViewModel.GetCaseList(pageNumber).cases;
             base.OnAppearing();
 
-            BindingContext = newCaseViewModel.GetCaseList(pageNumber).cases;
         }
 
         void NextButton_Clicked(System.Object sender, System.EventArgs e)
@@ -83,6 +87,29 @@ namespace DreamInventory.Views.Case
             pageNumber -= 1;
 
             BindingContext = newCaseViewModel.GetCaseList(pageNumber).cases;
+        }
+
+        void TableHeader_Tapped(System.Object sender, System.EventArgs e)
+        {
+            var temp = ((Label)sender);
+            string CurrentElementText = temp.Text;
+            CurrentElementText = Regex.Replace(CurrentElementText, @"\s+", "");
+
+            if (sortQuery == "" || (!sortQuery.Contains("_asc") && !sortQuery.Contains("_dsc")) || !sortQuery.Contains(CurrentElementText))
+                sortQuery = CurrentElementText + "_asc";
+            else if (sortQuery.Contains("asc"))
+                sortQuery = CurrentElementText + "_dsc";
+            else
+                sortQuery = "";
+
+            BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
+        }
+
+        void search_event(System.Object sender, System.EventArgs e)
+        {
+            var temp = ((Entry)sender);
+            searchQuery = temp.Text;
+            BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
         }
     }
 }
