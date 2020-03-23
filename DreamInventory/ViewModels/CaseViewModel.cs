@@ -45,6 +45,25 @@ namespace DreamInventory.ViewModels
             }
         }
 
+        public ICommand EditCaseCommand
+        {
+            get
+            {
+                return new Command(async (editedCase) =>
+                {
+                    var isUpdated = await caseApiService.EditCaseAsync(editedCase);
+
+                    if(isUpdated)
+                    {
+                        await App.Current.MainPage.DisplayAlert("Success", "Case Updated Successfully", "OK");
+                        await App.Current.MainPage.Navigation.PushAsync(new MasterPage());
+                    }
+                    else
+                        await App.Current.MainPage.DisplayAlert("Failed", "Something Went Wrong!!!", "Try Again");
+                });
+            }
+        }
+
         public CaseData GetCaseList(int pageNumber, string sortQuery = "", string searchQuery = "")
         {
             var response = caseApiService.GetCases(pageNumber, sortQuery, searchQuery);

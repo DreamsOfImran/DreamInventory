@@ -31,8 +31,8 @@ namespace DreamInventory.Views.Case
 
         void EditButton_Clicked(object sender, EventArgs e)
         {
-            var ToBeEdited = ((Button)sender).CommandParameter;
-
+            Cases ToBeEdited = ((Button)sender).CommandParameter as Cases;
+            Navigation.PushAsync(new EditCasePage(ToBeEdited));
         }
     }
 }

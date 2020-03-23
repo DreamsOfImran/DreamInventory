@@ -48,5 +48,8 @@
     <Compile Update="Views\Case\ShowCasePage.xaml.cs">
       <DependentUpon>ShowCasePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Case\EditCasePage.xaml.cs">
+      <DependentUpon>EditCasePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

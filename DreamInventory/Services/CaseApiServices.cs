@@ -57,6 +57,23 @@ namespace DreamInventory.Services
             return SelectedCase;
         }
 
+        public async Task<bool> EditCaseAsync(object editedCase)
+        {
+            var client = new HttpClient(GetInsecureHandler());
+            var caseID = editedCase.GetType().GetProperty("Id").GetValue(editedCase, null);
+            //var model = new Cases
+
+            var json = JsonConvert.SerializeObject(editedCase);
+
+            HttpContent content = new StringContent(json);
+
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PutAsync($"{BaseUrl}/cases/{caseID}", content);
+
+            return response.IsSuccessStatusCode;
+        }
+
         public async Task<bool> AddCaseAsync(string type, decimal? amount,
             string courtType, string caseType, DateTime? fillingDate,
             string judge, string docketType, string description,
