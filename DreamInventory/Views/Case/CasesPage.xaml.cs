@@ -54,7 +54,7 @@ namespace DreamInventory.Views.Case
 
         }
 
-        void NextButton_Clicked(System.Object sender, System.EventArgs e)
+        void NextButton_Clicked(object sender, EventArgs e)
         {
             pageNumber += 1;
             var apiData = newCaseViewModel.GetCaseList(pageNumber);
@@ -75,7 +75,7 @@ namespace DreamInventory.Views.Case
             BindingContext = apiData.cases;
         }
 
-        void PreviousButton_Clicked(System.Object sender, System.EventArgs e)
+        void PreviousButton_Clicked(object sender, EventArgs e)
         {
             nextButton.IsVisible = true;
             nextButtonMob.IsVisible = true;
@@ -89,7 +89,7 @@ namespace DreamInventory.Views.Case
             BindingContext = newCaseViewModel.GetCaseList(pageNumber).cases;
         }
 
-        void TableHeader_Tapped(System.Object sender, System.EventArgs e)
+        void TableHeader_Tapped(object sender, EventArgs e)
         {
             var temp = ((Label)sender);
             string CurrentElementText = temp.Text;
@@ -105,7 +105,7 @@ namespace DreamInventory.Views.Case
             BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
         }
 
-        void search_event(System.Object sender, System.EventArgs e)
+        void search_event(object sender, EventArgs e)
         {
             var temp = ((Entry)sender);
             searchQuery = temp.Text;
