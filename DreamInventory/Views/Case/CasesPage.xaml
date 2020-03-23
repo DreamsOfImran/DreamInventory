@@ -113,10 +113,26 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Margin="10,0,10,0" Text="Case No" VerticalOptions="Center" Grid.Column="0" Style="{StaticResource DesktopListHeaderStyles}" />
-                        <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource DesktopListHeaderStyles}" />
-                        <Label Margin="10,0,10,0" Text="Filling Date" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListHeaderStyles}" />
-                        <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource DesktopListHeaderStyles}" />
+                        <Label Margin="10,0,10,0" Text="Case No" VerticalOptions="Center" Grid.Column="0" Style="{StaticResource DesktopListHeaderStyles}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TableHeader_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource DesktopListHeaderStyles}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TableHeader_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Margin="10,0,10,0" Text="Filling Date" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListHeaderStyles}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TableHeader_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource DesktopListHeaderStyles}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TableHeader_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
 
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
