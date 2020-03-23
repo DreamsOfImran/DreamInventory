@@ -2,10 +2,46 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="DreamInventory.App">
     <Application.Resources>
         <ResourceDictionary>
+
+            <!--Colors-->
             <Color x:Key="NavigationPrimary">#147efb</Color>
+            <Color x:Key="PrimaryBlack">#333333</Color>
+
+            <!--Global Label Color-->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}" />
+            </Style>
+
+            <!--Navigation Page Styles-->
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
+            </Style>
+
+            <!--Desktop List Header Styles-->
+            <Style x:Key="DesktopListHeaderStyles" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <!--Mobile List Header Styles-->
+            <Style x:Key="MobileListHeaderStyles" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <!--Desktop List Content Styles-->
+            <Style x:Key="DesktopListContentStyles" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+            </Style>
+
+            <!--Desktop Show Cases Detail Head Styles-->
+            <Style x:Key="DesktopShowCasesDetailHeadStyles" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
             </Style>
 
             <OnPlatform x:Key="FontAwesomeBrands" x:TypeArguments="x:String">

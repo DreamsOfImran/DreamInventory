@@ -5,9 +5,16 @@
     NavigationPage.HasNavigationBar="false"
     x:Class="DreamInventory.MasterPage">
     <MasterDetailPage.Master>
-        <ContentPage Padding="5" BackgroundColor="#D6D6D6" Title="Menu">
+        <ContentPage BackgroundColor="#D6D6D6" Title="Menu">
             <ContentPage.Content>
-                <Grid Margin="0,50,0,5">
+                <Grid HorizontalOptions="Start" WidthRequest="1000">
+                    <Grid.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="0, 50, 0, 5" />
+                            <On Platform="Android, UWP" Value="0, 50, 0, 5" />
+                            <On Platform="macOS" Value="0, 0, 0, 5" />
+                        </OnPlatform>
+                    </Grid.Margin>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -35,7 +42,7 @@
                         </StackLayout>
                     </StackLayout>
                     
-                    <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid Grid.Row="1" Padding="15, 0, 0, 0" Grid.Column="0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="40" />

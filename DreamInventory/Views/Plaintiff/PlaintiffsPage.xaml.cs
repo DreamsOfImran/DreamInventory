@@ -14,6 +14,17 @@ namespace DreamInventory.Views.Plaintiff
             InitializeComponent();
 
             BindingContext = plaintiffApiService.GetPlaintiffs();
+
+            if (Device.RuntimePlatform == Device.macOS)
+            {
+                MobilePlaintiffsList.IsVisible = false;
+                DesktopPlaintiffsList.IsVisible = true;
+            }
+            else
+            {
+                MobilePlaintiffsList.IsVisible = true;
+                DesktopPlaintiffsList.IsVisible = false;
+            }
         }
     }
 }

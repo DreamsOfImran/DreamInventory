@@ -24,11 +24,17 @@ namespace DreamInventory.Views.Case
             {
                 MobileHeaderBar.IsVisible = false;
                 DesktopHeaderBar.IsVisible = true;
+
+                MobileCasesList.IsVisible = false;
+                DesktopCasesList.IsVisible = true;
             }
             else
             {
                 MobileHeaderBar.IsVisible = true;
                 DesktopHeaderBar.IsVisible = false;
+
+                MobileCasesList.IsVisible = true;
+                DesktopCasesList.IsVisible = false;
             }
 
             previousButton.IsVisible = false;
