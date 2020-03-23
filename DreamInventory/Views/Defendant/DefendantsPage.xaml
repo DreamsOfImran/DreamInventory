@@ -27,8 +27,67 @@
                 </StackLayout>
             </Grid>
 
-            <StackLayout Grid.Row="1" Padding="0">
-                <Frame BackgroundColor="#147efb" Padding="0" Margin="0,20,0,10">
+            <StackLayout Grid.Row="1" x:Name="DesktopDefendantsList">
+                <Frame BackgroundColor="#147efb" Padding="0" Margin="0,20,0,10" HasShadow="False">
+                    <Grid HeightRequest="40">
+                        <Grid.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="5" />
+                                <On Platform="Android, UWP" Value="5" />
+                                <On Platform="macOS" Value="10" />
+                            </OnPlatform>
+                        </Grid.Margin>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Margin="10,0,10,0" Text="Case ID" VerticalOptions="Center" Grid.Column="0" Style="{StaticResource DesktopListHeaderStyles}" />
+                        <Label Margin="10,0,10,0" Text="First Name" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource DesktopListHeaderStyles}" />
+                        <Label Margin="10,0,10,0" Text="Last Name" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListHeaderStyles}" />
+                        <Label Margin="10,0,10,0" Text="Attorney" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource DesktopListHeaderStyles}" />
+                                        
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    </Grid>
+                </Frame>
+
+                <ListView ItemsSource="{Binding}" HasUnevenRows="True" BackgroundColor="White">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="#cccccc" HasShadow="False" Margin="1">
+                                    <Grid HeightRequest="20" Margin="-15" Padding="3">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding CaseId}" VerticalOptions="Center" Grid.Column="0" FontAttributes="Bold" Style="{StaticResource DesktopListContentStyles}" />
+                                            <Label Text="{Binding FirstName}" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource DesktopListContentStyles}" />
+                                            <Label Text="{Binding LastName}" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListContentStyles}" />
+                                            <Label Text="{Binding Attorney}" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource DesktopListContentStyles}" />
+                                        </Grid>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Padding="0" x:Name="MobileDefendantsList">
+                <Frame BackgroundColor="#147efb" Padding="0" Margin="0,20,0,10" HasShadow="False">
                     <Grid HeightRequest="50">
                         <Grid.Margin>
                             <OnPlatform x:TypeArguments="Thickness">
@@ -38,47 +97,41 @@
                             </OnPlatform>
                         </Grid.Margin>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="AUTO" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Margin="10,0,10,0" Text="ID" VerticalOptions="Center" Grid.Column="0" TextColor="White" FontAttributes="Bold" />
-                        <Label Margin="10,0,10,0" Text="Case ID" VerticalOptions="Center" Grid.Column="1" TextColor="White" FontAttributes="Bold" />
-                        <Label Margin="10,0,10,0" Text="First Name" VerticalOptions="Center" Grid.Column="2" TextColor="White" FontAttributes="Bold" />
-                        <Label Margin="10,0,10,0" Text="Last Name" VerticalOptions="Center" Grid.Column="3" TextColor="White" FontAttributes="Bold" />
-                        <Label Margin="10,0,10,0" Text="Attorney" VerticalOptions="Center" Grid.Column="4" TextColor="White" FontAttributes="Bold" />
+                        <Label Margin="10,0,10,0" Text="Case ID" VerticalOptions="Center" Grid.Column="0" Style="{StaticResource MobileListHeaderStyles}" />
+                        <Label Margin="10,0,10,0" Text="First Name" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource MobileListHeaderStyles}" />
+                        <Label Margin="10,0,10,0" Text="Last Name" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource MobileListHeaderStyles}" />
+                        <Label Margin="10,0,10,0" Text="Attorney" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource MobileListHeaderStyles}" />
                                         
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
 
                     </Grid>
                 </Frame>
 
-                <ListView ItemsSource="{Binding}" RowHeight="60" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="None">
+                <ListView ItemsSource="{Binding}" RowHeight="80" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Frame>
-                                    <Grid>
+                                <Frame HasShadow="False" BorderColor="#cccccc" Margin="0, 0, 0, 10">
+                                    <Grid Padding="-10">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="AUTO" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding Id}" VerticalOptions="Center" Grid.Column="0" />
-                                        <Label Text="{Binding CaseId}" VerticalOptions="Center" Grid.Column="1" />
-                                        <Label Text="{Binding FirstName}" VerticalOptions="Center" Grid.Column="2" />
-                                        <Label Text="{Binding LastName}" VerticalOptions="Center" Grid.Column="3" />
-                                        <Label Text="{Binding Attorney}" VerticalOptions="Center" Grid.Column="4" />
+                                        <Label Text="{Binding CaseId}" VerticalOptions="Center" Grid.Column="0" FontAttributes="Bold" />
+                                        <Label Text="{Binding FirstName}" VerticalOptions="Center" Grid.Column="1" />
+                                        <Label Text="{Binding LastName}" VerticalOptions="Center" Grid.Column="2" />
+                                        <Label Text="{Binding Attorney}" VerticalOptions="Center" Grid.Column="3" />
                                     </Grid>
                                 </Frame>
                             </ViewCell>

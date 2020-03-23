@@ -13,6 +13,17 @@ namespace DreamInventory.Views.Case
             InitializeComponent();
 
             BindingContext = caseViewModel.SelectedCase(selectedCase);
+
+            if (Device.RuntimePlatform == Device.macOS)
+            {
+                MobileShowCases.IsVisible = false;
+                DesktopShowCases.IsVisible = true;
+            }
+            else
+            {
+                MobileShowCases.IsVisible = true;
+                DesktopShowCases.IsVisible = false;
+            }
         }
 
         async void DeleteButton_ClickedAsync(object sender, EventArgs e)
