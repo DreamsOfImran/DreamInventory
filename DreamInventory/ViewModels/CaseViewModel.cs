@@ -15,7 +15,7 @@ namespace DreamInventory.ViewModels
         public decimal? Amount { get; set; }
         public string CourtType { get; set; }
         public string CaseType { get; set; }
-        public DateTime? FillingDate { get; set; }
+        public DateTime? FillingDate { get; set; } = DateTime.Today;
         public string Judge { get; set; }
         public string DocketType { get; set; }
         public string Description { get; set; }
