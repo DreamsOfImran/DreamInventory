@@ -20,14 +20,14 @@ namespace DreamInventory.Views.Case
         {
             List<string> sortElements = new List<string>();
             sortElements.Add("Sort by: None");
-            sortElements.Add("Sort by: Case No asc");
-            sortElements.Add("Sort by: Case No desc");
-            sortElements.Add("Sort by: Case Type asc");
-            sortElements.Add("Sort by: Case Type desc");
-            sortElements.Add("Sort by: Filling Date asc");
-            sortElements.Add("Sort by: Filling Date desc");
-            sortElements.Add("Sort by: Judge asc");
-            sortElements.Add("Sort by: Judge desc");
+            sortElements.Add("Case No asc");
+            sortElements.Add("Case No desc");
+            sortElements.Add("Case Type asc");
+            sortElements.Add("Case Type desc");
+            sortElements.Add("Filling Date asc");
+            sortElements.Add("Filling Date desc");
+            sortElements.Add("Judge asc");
+            sortElements.Add("Judge desc");
 
             InitializeComponent();
 
