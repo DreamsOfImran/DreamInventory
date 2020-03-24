@@ -18,7 +18,21 @@ namespace DreamInventory.Views.Case
 
         public CasesPage()
         {
+            List<string> sortElements = new List<string>();
+            sortElements.Add("Sort by: None");
+            sortElements.Add("Sort by: Case No asc");
+            sortElements.Add("Sort by: Case No desc");
+            sortElements.Add("Sort by: Case Type asc");
+            sortElements.Add("Sort by: Case Type desc");
+            sortElements.Add("Sort by: Filling Date asc");
+            sortElements.Add("Sort by: Filling Date desc");
+            sortElements.Add("Sort by: Judge asc");
+            sortElements.Add("Sort by: Judge desc");
+
             InitializeComponent();
+
+            mobilePicker.ItemsSource = sortElements;
+            macPicker.ItemsSource = sortElements;
 
             if (Device.RuntimePlatform == Device.macOS)
             {
@@ -95,26 +109,36 @@ namespace DreamInventory.Views.Case
             BindingContext = newCaseViewModel.GetCaseList(pageNumber).cases;
         }
 
-        void TableHeader_Tapped(object sender, EventArgs e)
-        {
-            var temp = ((Label)sender);
-            string CurrentElementText = temp.Text;
-            CurrentElementText = Regex.Replace(CurrentElementText, @"\s+", "");
-
-            if (sortQuery == "" || (!sortQuery.Contains("_asc") && !sortQuery.Contains("_dsc")) || !sortQuery.Contains(CurrentElementText))
-                sortQuery = CurrentElementText + "_asc";
-            else if (sortQuery.Contains("asc"))
-                sortQuery = CurrentElementText + "_dsc";
-            else
-                sortQuery = "";
-
-            BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
-        }
-
         void search_event(object sender, EventArgs e)
         {
             var temp = ((Entry)sender);
             searchQuery = temp.Text;
+            BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
+        }
+
+        void SortPicker_SelectedIndexChanged(System.Object sender, System.EventArgs e)
+        {
+            var temp = ((Picker)sender);
+            string CurrentElementText = temp.SelectedItem.ToString();
+            if (CurrentElementText ==  "None")
+            {
+                sortQuery = "";
+            }
+            else if (CurrentElementText.Contains("asc"))
+            {
+                int index = CurrentElementText.IndexOf("asc");
+                CurrentElementText = CurrentElementText.Remove(index, 3);
+                CurrentElementText = Regex.Replace(CurrentElementText, @"\s+", "");
+                sortQuery = CurrentElementText + "_asc";
+            }
+            else
+            {
+                int index = CurrentElementText.IndexOf("desc");
+                CurrentElementText = CurrentElementText.Remove(index, 4);
+                CurrentElementText = Regex.Replace(CurrentElementText, @"\s+", "");
+                sortQuery = CurrentElementText + "_dsc";
+            }
+
             BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
         }
     }
