@@ -88,7 +88,7 @@
 
             <StackLayout Grid.Row="1" Padding="0" x:Name="MobileDefendantsList">
                 <Frame BackgroundColor="#147efb" Padding="0" Margin="0,20,0,10" HasShadow="False">
-                    <Grid HeightRequest="50">
+                    <Grid HeightRequest="70">
                         <Grid.Margin>
                             <OnPlatform x:TypeArguments="Thickness">
                                 <On Platform="iOS" Value="5" />

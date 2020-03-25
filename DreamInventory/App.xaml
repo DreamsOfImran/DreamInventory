@@ -30,6 +30,7 @@
             <Style x:Key="MobileListHeaderStyles" TargetType="Label">
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
 
             <!--Desktop List Content Styles-->
@@ -42,6 +43,12 @@
             <Style x:Key="DesktopShowCasesDetailHeadStyles" TargetType="Label">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <!--Form Field and Label Styles-->
+            <Style x:Key="FormFieldAndLableStyles" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource PrimaryBlack}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}" />
             </Style>
 
             <OnPlatform x:Key="FontAwesomeBrands" x:TypeArguments="x:String">

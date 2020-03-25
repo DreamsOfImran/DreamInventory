@@ -26,8 +26,8 @@ namespace DreamInventory.Views.Case
             sortElements.Add("Case No desc");
             sortElements.Add("Case Type asc");
             sortElements.Add("Case Type desc");
-            sortElements.Add("Filling Date asc");
-            sortElements.Add("Filling Date desc");
+            sortElements.Add("Filing Date asc");
+            sortElements.Add("Filing Date desc");
             sortElements.Add("Judge asc");
             sortElements.Add("Judge desc");
 

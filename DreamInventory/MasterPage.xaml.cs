@@ -15,6 +15,17 @@ namespace DreamInventory
             InitializeComponent();
 
             Detail = new NavigationPage(new CasesPage());
+
+            if (Device.RuntimePlatform == Device.macOS)
+            {
+                MobileMenu.IsVisible = false;
+                DesktopMenu.IsVisible = true;
+            }
+            else
+            {
+                MobileMenu.IsVisible = true;
+                DesktopMenu.IsVisible = false;
+            }
         }
 
         void Cases_Tapped(object sender, EventArgs e)

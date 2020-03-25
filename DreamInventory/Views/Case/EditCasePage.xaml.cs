@@ -11,6 +11,17 @@ namespace DreamInventory.Views.Case
         {
             InitializeComponent();
 
+            if (Device.RuntimePlatform == Device.macOS)
+            {
+                MobileEditCaseForm.IsVisible = false;
+                DesktopEditCaseForm.IsVisible = true;
+            }
+            else
+            {
+                MobileEditCaseForm.IsVisible = true;
+                DesktopEditCaseForm.IsVisible = false;
+            }
+
             BindingContext = caseObject;
         }
     }
