@@ -64,7 +64,7 @@ namespace DreamInventory.ViewModels
             }
         }
 
-        public CaseData GetCaseList(int pageNumber, string sortQuery = "", string searchQuery = "")
+        public CaseData GetCaseList(long pageNumber, string sortQuery = "", string searchQuery = "")
         {
             var response = caseApiService.GetCases(pageNumber, sortQuery, searchQuery);
             return response;

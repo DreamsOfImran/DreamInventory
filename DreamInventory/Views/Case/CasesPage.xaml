@@ -30,7 +30,7 @@
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Row="0">
-                        <Label Text="{Binding Count, StringFormat='Cases ({0})'}" FontAttributes="Bold" FontSize="Large" />
+                        <Label x:Name="CasesCountDesktop" Text="test" FontAttributes="Bold"  />
                     </StackLayout>
 
                     <StackLayout Grid.Row="1">
@@ -74,7 +74,7 @@
                     </Grid.ColumnDefinitions>
 
                     <StackLayout Grid.Column="0">
-                        <Label Text="{Binding Count, StringFormat='Cases ({0})'}" FontAttributes="Bold" FontSize="Large" />
+                        <Label x:Name="CasesCountMob" FontAttributes="Bold" FontSize="Large" />
                     </StackLayout>
 
                     <StackLayout Grid.Column="1">
@@ -160,6 +160,18 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Page" />
+                    <Entry x:Name="CurrentPageEntry"
+                           Keyboard="Numeric"
+                           WidthRequest="30" HeightRequest="20"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           MaxLength="5"
+                           TextChanged="CurrentPageEntry_TextChanged"
+                           Completed="CurrentPageEntry_Completed"/>
+                    <Label x:Name="TotalPagesLabel" />
+                </StackLayout>
             </StackLayout>
 
             <StackLayout Grid.Row="1" Padding="0" x:Name="MobileCasesList">
