@@ -45,11 +45,11 @@ namespace DreamInventory.Services
 
         public Cases GetSelectedCase(object selectedCase)
         {
-            var client = new HttpClient();
+            var client = new HttpClient(GetInsecureHandler());
 
             var requestedCaseId = selectedCase.GetType().GetProperty("Id").GetValue(selectedCase, null);
 
-            var response = client.GetStringAsync($"https://localhost:5001/cases/{requestedCaseId}");
+            var response = client.GetStringAsync($"{BaseUrl}/cases/{requestedCaseId}");
             var result = response.GetAwaiter().GetResult();
 
             var SelectedCase = JsonConvert.DeserializeObject<Cases>(result);
