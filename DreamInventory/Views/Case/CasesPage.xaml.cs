@@ -78,6 +78,8 @@ namespace DreamInventory.Views.Case
             BindingContext = caseData.cases;
             string CaseCount = "Cases (" + totalCases.ToString() + ")";
             totalPages = (totalCases / pageSize);
+            if (totalCases % pageSize != 0)
+                totalPages += 1;
 
             CurrentPageEntry.Text = pageNumber.ToString();
             TotalPagesLabel.Text = "of " + totalPages.ToString();
@@ -107,6 +109,7 @@ namespace DreamInventory.Views.Case
                 previousButtonMob.IsVisible = true;
             }
 
+            CurrentPageEntry.Text = pageNumber.ToString();
             BindingContext = apiData.cases;
         }
 
@@ -121,6 +124,7 @@ namespace DreamInventory.Views.Case
             }
             pageNumber -= 1;
 
+            CurrentPageEntry.Text = pageNumber.ToString();
             BindingContext = newCaseViewModel.GetCaseList(pageNumber).cases;
         }
 
