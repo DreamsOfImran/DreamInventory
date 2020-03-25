@@ -208,7 +208,7 @@
         </Grid>
 
         <ScrollView x:Name="DesktopShowCases">
-            <Grid BindingContext="{Binding}" Padding="30" Margin="0, 50, 0, 0">
+            <Grid BindingContext="{Binding}" Padding="30" Margin="0, 20, 0, 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                     <RowDefinition Height="Auto" />

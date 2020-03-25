@@ -30,6 +30,7 @@
             <Style x:Key="MobileListHeaderStyles" TargetType="Label">
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
 
             <!--Desktop List Content Styles-->
