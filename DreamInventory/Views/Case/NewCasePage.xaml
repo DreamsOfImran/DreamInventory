@@ -22,7 +22,7 @@
                 <RowDefinition Height="60" />
             </Grid.RowDefinitions>
 
-            <StackLayout>
+            <StackLayout Grid.Row="0">
                 <Label Text="Add Case Details"
                        FontAttributes="Bold"
                        FontSize="20" />
@@ -295,8 +295,8 @@
             </ScrollView>
 
             <StackLayout Padding="0, 20, 0, 0">
-                <Button Command="{Binding AddCaseCommand}"
-                        Text="Save"
+                <Button Text="Save"
+                        Command="{Binding AddCaseCommand}"
                         WidthRequest="100"
                         BackgroundColor="#147efb"
                         TextColor="#FFFFFF"
