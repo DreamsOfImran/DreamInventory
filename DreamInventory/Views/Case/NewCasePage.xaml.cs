@@ -22,5 +22,9 @@ namespace DreamInventory.Views.Case
                 DesktopNewCaseForm.IsVisible = false;
             }
         }
+
+        void Editor_TextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
+        }
     }
 }

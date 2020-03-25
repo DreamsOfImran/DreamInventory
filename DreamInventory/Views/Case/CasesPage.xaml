@@ -180,7 +180,7 @@
 
                         <Label Margin="10,0,10,0" Text="Case No" VerticalOptions="Center" Grid.Column="0" Style="{StaticResource DesktopListHeaderStyles}" />
                         <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource DesktopListHeaderStyles}" />
-                        <Label Margin="10,0,10,0" Text="Filling Date" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListHeaderStyles}" />
+                        <Label Margin="10,0,10,0" Text="Filing Date" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListHeaderStyles}" />
                         <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource DesktopListHeaderStyles}" />
 
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
@@ -250,7 +250,7 @@
 
                         <Label Margin="10,0,10,0" Text="Case No" VerticalOptions="Center" Grid.Column="0" Style="{StaticResource MobileListHeaderStyles}" />
                         <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource MobileListHeaderStyles}" />
-                        <Label Margin="10,0,10,0" Text="Filling Date" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource MobileListHeaderStyles}" />
+                        <Label Margin="10,0,10,0" Text="Filing Date" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource MobileListHeaderStyles}" />
                         <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource MobileListHeaderStyles}" />
 
                         <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />

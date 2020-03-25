@@ -67,7 +67,7 @@
             </Grid.ColumnDefinitions>
 
             <StackLayout Grid.Column="0" Padding="10">
-                <Label Text="Filling Date" />
+                <Label Text="Filing Date" />
                 <DatePicker Date="{Binding FillingDate}" HeightRequest="30" />
             </StackLayout>
 

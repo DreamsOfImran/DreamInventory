@@ -336,7 +336,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0">
-                            <Label Text="Filling Date"
+                            <Label Text="Filing Date"
                                    HorizontalOptions="Start"
                                    Style="{StaticResource DesktopShowCasesDetailHeadStyles}" />
                             <Label Text=":"
