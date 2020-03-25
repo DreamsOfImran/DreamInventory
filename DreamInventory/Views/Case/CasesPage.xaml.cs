@@ -10,10 +10,12 @@ namespace DreamInventory.Views.Case
 {
     public partial class CasesPage : ContentPage
     {
-        public int pageNumber = 1;
-        public int pageSize = 10;
+        public long pageNumber = 1;
+        public long pageSize = 15;
         public string sortQuery = "";
         public string searchQuery = "";
+        public long totalCases;
+        public long totalPages;
         CaseViewModel newCaseViewModel = new CaseViewModel();
 
         public CasesPage()
@@ -30,6 +32,8 @@ namespace DreamInventory.Views.Case
             sortElements.Add("Judge desc");
 
             InitializeComponent();
+
+            
 
             mobilePicker.ItemsSource = sortElements;
             macPicker.ItemsSource = sortElements;
@@ -69,7 +73,18 @@ namespace DreamInventory.Views.Case
 
         protected override void OnAppearing()
         {
-            BindingContext = newCaseViewModel.GetCaseList(pageNumber).cases;
+            var caseData = newCaseViewModel.GetCaseList(pageNumber);
+            totalCases = caseData.TotalCount;
+            BindingContext = caseData.cases;
+            string CaseCount = "Cases (" + totalCases.ToString() + ")";
+            totalPages = (totalCases / pageSize);
+
+            CurrentPageEntry.Text = pageNumber.ToString();
+            TotalPagesLabel.Text = "of " + totalPages.ToString();
+
+            CasesCountDesktop.Text = CaseCount;
+            CasesCountMob.Text = CaseCount;
+            
             base.OnAppearing();
 
         }
@@ -140,6 +155,37 @@ namespace DreamInventory.Views.Case
             }
 
             BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
+        }
+
+        void CurrentPageEntry_Completed(System.Object sender, System.EventArgs e)
+        {
+            try
+            {
+                long _PageNumber = long.Parse(CurrentPageEntry.Text);
+                if (_PageNumber > totalPages)
+                    DisplayAlert("Error", "Input value Cannot exceed Total Pages", "Ok");
+                else if(_PageNumber < 1)
+                    DisplayAlert("Error", "Input value cannot be less than one", "Ok");
+                else
+                {
+                    pageNumber = _PageNumber;
+                    BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
+                }
+                
+            }
+            catch
+            {
+                DisplayAlert("Error", "Please enter valid Page Number", "Ok");
+            }
+            
+        }
+
+        void CurrentPageEntry_TextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
+            if (CurrentPageEntry.Text.Length < 2)
+                CurrentPageEntry.WidthRequest = 20;
+            else
+                CurrentPageEntry.WidthRequest = (CurrentPageEntry.Text.Length * 10) + 10;
         }
     }
 }

@@ -23,11 +23,11 @@ namespace DreamInventory.Services
             return handler;
         }
 
-        public CaseData GetCases(int pageNumber,string sortQuery, string searchQuery)
+        public CaseData GetCases(long pageNumber,string sortQuery, string searchQuery)
         {
             using (var client = new HttpClient(GetInsecureHandler()))
             {
-                string uri = $"{BaseUrl}/cases?pageNumber={pageNumber}&pageSize=10";
+                string uri = $"{BaseUrl}/cases?pageNumber={pageNumber}&pageSize=15";
                 if(sortQuery != "")
                     uri += $"&sort={sortQuery}";
 
