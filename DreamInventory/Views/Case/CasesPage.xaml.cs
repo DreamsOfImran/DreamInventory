@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using DreamInventory.Services;
 using DreamInventory.ViewModels;
@@ -14,8 +15,10 @@ namespace DreamInventory.Views.Case
         public long pageSize = 15;
         public string sortQuery = "";
         public string searchQuery = "";
-        public long totalCases;
+        public long totalCasesCount;
         public long totalPages;
+        public List<Cases> CurrentViewCases;
+        public ObservableCollection<Cases> CasesCollection { get; private set; }
         CaseViewModel newCaseViewModel = new CaseViewModel();
 
         public CasesPage()
@@ -32,8 +35,6 @@ namespace DreamInventory.Views.Case
             sortElements.Add("Judge desc");
 
             InitializeComponent();
-
-            
 
             mobilePicker.ItemsSource = sortElements;
             macPicker.ItemsSource = sortElements;
@@ -56,7 +57,6 @@ namespace DreamInventory.Views.Case
             }
 
             previousButton.IsVisible = false;
-            previousButtonMob.IsVisible = false;
         }
 
         void NewCase_Tapped(object sender, EventArgs e)
@@ -73,12 +73,15 @@ namespace DreamInventory.Views.Case
 
         protected override void OnAppearing()
         {
+            if(Device.RuntimePlatform != Device.macOS)
+                pageNumber = 1;
+
             var caseData = newCaseViewModel.GetCaseList(pageNumber);
-            totalCases = caseData.TotalCount;
-            BindingContext = caseData.cases;
-            string CaseCount = "Cases (" + totalCases.ToString() + ")";
-            totalPages = (totalCases / pageSize);
-            if (totalCases % pageSize != 0)
+            totalCasesCount = caseData.TotalCount;
+            CurrentViewCases = caseData.cases;
+            string CaseCount = "Cases (" + totalCasesCount.ToString() + ")";
+            totalPages = (totalCasesCount / pageSize);
+            if (totalCasesCount % pageSize != 0)
                 totalPages += 1;
 
             CurrentPageEntry.Text = pageNumber.ToString();
@@ -86,27 +89,25 @@ namespace DreamInventory.Views.Case
 
             CasesCountDesktop.Text = CaseCount;
             CasesCountMob.Text = CaseCount;
-            
-            base.OnAppearing();
 
+            BindingContext = CurrentViewCases;
+            base.OnAppearing();
         }
 
         void NextButton_Clicked(object sender, EventArgs e)
         {
             pageNumber += 1;
             var apiData = newCaseViewModel.GetCaseList(pageNumber);
-            long totalPages = (apiData.TotalCount/ pageSize) + 1;
+            totalPages = (apiData.TotalCount/ pageSize) + 1;
 
             if(totalPages == pageNumber)
             {
                 nextButton.IsVisible = false;
-                nextButtonMob.IsVisible = false;
             }
 
             if (pageNumber > 1)
             {
                 previousButton.IsVisible = true;
-                previousButtonMob.IsVisible = true;
             }
 
             CurrentPageEntry.Text = pageNumber.ToString();
@@ -116,11 +117,9 @@ namespace DreamInventory.Views.Case
         void PreviousButton_Clicked(object sender, EventArgs e)
         {
             nextButton.IsVisible = true;
-            nextButtonMob.IsVisible = true;
             if (pageNumber == 2)
             {
                 previousButton.IsVisible = false;
-                previousButtonMob.IsVisible = false;
             }
             pageNumber -= 1;
 
@@ -190,6 +189,23 @@ namespace DreamInventory.Views.Case
                 CurrentPageEntry.WidthRequest = 20;
             else
                 CurrentPageEntry.WidthRequest = (CurrentPageEntry.Text.Length * 10) + 10;
+        }
+
+        void ListViewMob_ItemAppearing(System.Object sender, Xamarin.Forms.ItemVisibilityEventArgs e)
+        {
+            var viewCellDetails = e.Item as Cases;
+            int viewCellIndex = CurrentViewCases.IndexOf(viewCellDetails);
+
+            if (CurrentViewCases.Count - 1 <= viewCellIndex && totalPages != pageNumber)
+            {               
+                pageNumber += 1;
+                var caseData = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery);
+                List<Cases> newList = caseData.cases;
+                CurrentViewCases.AddRange(newList);
+
+                CasesCollection = new ObservableCollection<Cases>(CurrentViewCases);
+                BindingContext = CasesCollection;
+            }
         }
     }
 }
