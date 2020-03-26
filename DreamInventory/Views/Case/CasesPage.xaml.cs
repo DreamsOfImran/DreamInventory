@@ -29,8 +29,8 @@ namespace DreamInventory.Views.Case
             sortElements.Add("Case No desc");
             sortElements.Add("Case Type asc");
             sortElements.Add("Case Type desc");
-            sortElements.Add("Filling Date asc");
-            sortElements.Add("Filling Date desc");
+            sortElements.Add("Filing Date asc");
+            sortElements.Add("Filing Date desc");
             sortElements.Add("Judge asc");
             sortElements.Add("Judge desc");
 
@@ -110,6 +110,7 @@ namespace DreamInventory.Views.Case
                 previousButton.IsVisible = true;
             }
 
+            CurrentPageEntry.Text = pageNumber.ToString();
             BindingContext = apiData.cases;
         }
 
@@ -122,6 +123,7 @@ namespace DreamInventory.Views.Case
             }
             pageNumber -= 1;
 
+            CurrentPageEntry.Text = pageNumber.ToString();
             BindingContext = newCaseViewModel.GetCaseList(pageNumber).cases;
         }
 

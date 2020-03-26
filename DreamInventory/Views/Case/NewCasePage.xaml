@@ -10,7 +10,7 @@
 
     <StackLayout>
 
-        <Grid x:Name="DesktopNewCaseForm" IsVisible="False">
+        <Grid x:Name="DesktopNewCaseForm" IsVisible="False" Margin="20, 40, 20, 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
                 <RowDefinition Height="60" />
@@ -18,18 +18,15 @@
                 <RowDefinition Height="60" />
                 <RowDefinition Height="60" />
                 <RowDefinition Height="60" />
+                <RowDefinition Height="230" />
+                <RowDefinition Height="60" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <StackLayout Grid.Column="0" Padding="10" Orientation="Horizontal">
-                    <Button Command="{Binding AddCaseCommand}" Text="Save" WidthRequest="60" BackgroundColor="#4db2ff" />
-                </StackLayout>
-            </Grid>
+            <StackLayout Grid.Row="0">
+                <Label Text="Add Case Details"
+                       FontAttributes="Bold"
+                       FontSize="20" />
+            </StackLayout>
 
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -37,14 +34,27 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout Grid.Column="0" Padding="10">
-                    <Label Text="Type" />
-                    <Entry Text="{Binding Type}" HeightRequest="30" />
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Type"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding Type}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
                 </StackLayout>
 
-                <StackLayout Grid.Column="1" Padding="10">
-                    <Label Text="Amount" />
-                    <Entry Text="{Binding Amount}" HeightRequest="30" Keyboard="Numeric" />
+                <StackLayout Grid.Column="1" Padding="20, 0, 0, 0">
+                    <Label Text="Amount"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding Amount}"
+                           FontSize="14"
+                           HeightRequest="30"
+                           Keyboard="Numeric"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
                 </StackLayout>
             </Grid>
 
@@ -54,14 +64,26 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout Grid.Column="0" Padding="10">
-                    <Label Text="Court Type" />
-                    <Entry Text="{Binding CourtType}" HeightRequest="30" />
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Court Type"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding CourtType}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
                 </StackLayout>
 
-                <StackLayout Grid.Column="1" Padding="10">
-                    <Label Text="Case Type" />
-                    <Entry Text="{Binding CaseType}" HeightRequest="30" />
+                <StackLayout Grid.Column="1" Padding="20, 0, 0, 0">
+                    <Label Text="Case Type"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding CaseType}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
                 </StackLayout>
             </Grid>
 
@@ -71,14 +93,26 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout Grid.Column="0" Padding="10">
-                    <Label Text="Filling Date" />
-                    <DatePicker Date="{Binding FillingDate}" HeightRequest="30" />
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Filing Date"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <DatePicker Date="{Binding FillingDate}"
+                                HeightRequest="25"
+                                FontSize="14"
+                                Style="{StaticResource FormFieldAndLableStyles}" />
                 </StackLayout>
 
-                <StackLayout Grid.Column="1" Padding="10">
-                    <Label Text="Judge" />
-                    <Entry Text="{Binding Judge}" HeightRequest="30" />
+                <StackLayout Grid.Column="1" Padding="20, 0, 0, 0">
+                    <Label Text="Judge"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding Judge}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
                 </StackLayout>
             </Grid>
 
@@ -88,14 +122,27 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout Grid.Column="0" Padding="10">
-                    <Label Text="Case No" />
-                    <Entry Text="{Binding CaseNo}" HeightRequest="30" />
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Case No"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding CaseNo}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
                 </StackLayout>
 
-                <StackLayout Grid.Column="1" Padding="10">
-                    <Label Text="Case URL" />
-                    <Entry Text="{Binding CaseUrl}" HeightRequest="30" Keyboard="Url" />
+                <StackLayout Grid.Column="1" Padding="20, 0, 0, 0">
+                    <Label Text="Case URL"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding CaseUrl}"
+                           HeightRequest="30"
+                           Keyboard="Url"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
                 </StackLayout>
             </Grid>
 
@@ -105,109 +152,151 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout Grid.Column="0" Padding="10">
-                    <Label Text="Docket Type" />
-                    <Entry Text="{Binding DocketType}" HeightRequest="30" />
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Docket Type"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding DocketType}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
                 </StackLayout>
+            </Grid>
 
-                <StackLayout Grid.Column="1" Padding="10">
-                    <Label Text="Description" />
-                    <Entry Text="{Binding Description}" HeightRequest="30" />
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Description"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Editor Text="{Binding Description}"
+                            HeightRequest="200"
+                            FontSize="14"
+                            BackgroundColor="White"
+                            Style="{StaticResource FormFieldAndLableStyles}" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="7">
+                <StackLayout Padding="0, 10, 10, 10" Orientation="Horizontal">
+                    <Button Text="Save"
+                            Command="{Binding AddCaseCommand}"
+                            WidthRequest="70"
+                            BackgroundColor="#147efb"
+                            TextColor="#FFFFFF"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            CornerRadius="5"
+                            BorderWidth="2"
+                            BorderColor="#147efb" />
                 </StackLayout>
             </Grid>
 
         </Grid>
 
         <StackLayout x:Name="MobileNewCaseForm" IsVisible="False" Padding="20">
-            <StackLayout>
-                <Label Text="Add Case Details"
-                       FontAttributes="Bold"
-                       FontSize="Large" />
-            </StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout>
+                        <Label Text="Add Case Details"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               TextColor="{StaticResource PrimaryBlack}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding Type}"
+                               HeightRequest="40"
+                               Placeholder="Type"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding Amount}"
+                               HeightRequest="40"
+                               Keyboard="Numeric"
+                               Placeholder="Amount"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding CourtType}"
+                               HeightRequest="40"
+                               Placeholder="Court Type"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding CaseType}"
+                               HeightRequest="40"
+                               Placeholder="Case Type"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <DatePicker Date="{Binding FillingDate}"
+                                    HeightRequest="40"
+                                    TextColor="{StaticResource PrimaryBlack}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding Judge}"
+                               HeightRequest="40"
+                               Placeholder="Judge Name"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding CaseNo}"
+                               HeightRequest="40"
+                               Placeholder="Case Number"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding CaseUrl}"
+                               HeightRequest="40"
+                               Keyboard="Url"
+                               Placeholder="Case URL"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding DocketType}"
+                               HeightRequest="40"
+                               Placeholder="Docket Type"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0" HeightRequest="160">
+                        <Frame BorderColor="LightGray" CornerRadius="5" HasShadow="False" Padding="2">
+                            <Editor Text="{Binding Description}"
+                                    HeightRequest="150"
+                                    BackgroundColor="White"
+                                    Placeholder="Description"
+                                    Style="{StaticResource FormFieldAndLableStyles}" />
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
 
             <StackLayout Padding="0, 20, 0, 0">
-                <Entry Text="{Binding Type}"
-                       HeightRequest="40"
-                       Placeholder="Type"
-                       PlaceholderColor="#333333"
-                       ClearButtonVisibility="WhileEditing" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <Entry Text="{Binding Amount}"
-                       HeightRequest="40"
-                       Keyboard="Numeric"
-                       Placeholder="Amount"
-                       PlaceholderColor="#333333"
-                       ClearButtonVisibility="WhileEditing" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <Entry Text="{Binding CourtType}"
-                       HeightRequest="40"
-                       Placeholder="Court Type"
-                       PlaceholderColor="#333333"
-                       ClearButtonVisibility="WhileEditing" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <Entry Text="{Binding CaseType}"
-                       HeightRequest="40"
-                       Placeholder="Case Type"
-                       PlaceholderColor="#333333"
-                       ClearButtonVisibility="WhileEditing" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <DatePicker Date="{Binding FillingDate}"
-                            HeightRequest="40"
-                            TextColor="#333333" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <Entry Text="{Binding Judge}"
-                       HeightRequest="40"
-                       Placeholder="Judge Name"
-                       PlaceholderColor="#333333"
-                       ClearButtonVisibility="WhileEditing" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <Entry Text="{Binding CaseNo}"
-                       HeightRequest="40"
-                       Placeholder="Case Number"
-                       PlaceholderColor="#333333"
-                       ClearButtonVisibility="WhileEditing" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <Entry Text="{Binding CaseUrl}"
-                       HeightRequest="40"
-                       Keyboard="Url"
-                       Placeholder="Case URL"
-                       PlaceholderColor="#333333"
-                       ClearButtonVisibility="WhileEditing" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <Entry Text="{Binding DocketType}"
-                       HeightRequest="40"
-                       Placeholder="Docket Type"
-                       PlaceholderColor="#333333"
-                       ClearButtonVisibility="WhileEditing" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <Entry Text="{Binding Description}"
-                       HeightRequest="40"
-                       Placeholder="Description"
-                       PlaceholderColor="#333333"
-                       ClearButtonVisibility="WhileEditing" />
-            </StackLayout>
-
-            <StackLayout Padding="0, 20, 0, 0">
-                <Button Command="{Binding AddCaseCommand}"
-                        Text="Save"
+                <Button Text="Save"
+                        Command="{Binding AddCaseCommand}"
                         WidthRequest="100"
                         BackgroundColor="#147efb"
                         TextColor="#FFFFFF"
@@ -219,3 +308,4 @@
     </StackLayout>
 
 </ContentPage>
+ 
