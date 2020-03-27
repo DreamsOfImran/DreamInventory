@@ -24,5 +24,10 @@ namespace DreamInventory.Views.Case
 
             BindingContext = caseObject;
         }
+
+        void Cancel_Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }

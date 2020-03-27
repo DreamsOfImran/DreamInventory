@@ -4,7 +4,7 @@
         <ResourceDictionary>
 
             <!--Colors-->
-            <Color x:Key="NavigationPrimary">#147efb</Color>
+            <Color x:Key="NavigationPrimary">#4a69ff</Color>
             <Color x:Key="PrimaryBlack">#333333</Color>
 
             <!--Global Label Color-->
