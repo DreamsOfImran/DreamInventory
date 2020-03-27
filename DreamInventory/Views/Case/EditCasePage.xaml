@@ -186,13 +186,23 @@
                             Command="{Binding EditCaseCommand, Source={vm:CaseViewModel}}"
                             CommandParameter="{Binding}"
                             WidthRequest="70"
-                            BackgroundColor="#147efb"
+                            BackgroundColor="#4a69ff"
                             TextColor="#FFFFFF"
                             FontAttributes="Bold"
                             FontSize="14"
                             CornerRadius="5"
                             BorderWidth="2"
-                            BorderColor="#147efb" />
+                            BorderColor="#4a69ff" />
+                    <Button Text="Cancel"
+                            Clicked="Cancel_Button_Clicked"
+                            WidthRequest="70"
+                            BackgroundColor="#555555"
+                            TextColor="#FFFFFF"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            CornerRadius="5"
+                            BorderWidth="2"
+                            BorderColor="#555555" />
                 </StackLayout>
             </Grid>
         </Grid>
@@ -296,7 +306,14 @@
                         Command="{Binding EditCaseCommand, Source={vm:CaseViewModel}}"
                         CommandParameter="{Binding}"
                         WidthRequest="100"
-                        BackgroundColor="#147efb"
+                        BackgroundColor="#4a69ff"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        FontSize="16" />
+                <Button Text="Cancel"
+                        Clicked="Cancel_Button_Clicked"
+                        WidthRequest="100"
+                        BackgroundColor="#555555"
                         TextColor="#FFFFFF"
                         FontAttributes="Bold"
                         FontSize="16" />

@@ -26,5 +26,10 @@ namespace DreamInventory.Views.Case
         void Editor_TextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
         {
         }
+
+        void Cancel_Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }

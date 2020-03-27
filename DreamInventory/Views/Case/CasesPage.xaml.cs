@@ -90,8 +90,28 @@ namespace DreamInventory.Views.Case
             CasesCountDesktop.Text = CaseCount;
             CasesCountMob.Text = CaseCount;
 
+            setBgColor();
+
             BindingContext = CurrentViewCases;
             base.OnAppearing();
+        }
+
+        private void setBgColor()
+        {
+            int count = 0;
+            foreach(Cases a in CurrentViewCases)
+            {
+                if(IsOdd(count))
+                {
+                    a.ViewCellBackgroundColor = Color.FromHex("#ffffff");
+                }
+                else
+                {
+                    a.ViewCellBackgroundColor = Color.FromRgba(0, 0, 0, .05);
+                }
+
+                count++;
+            }
         }
 
         void NextButton_Clicked(object sender, EventArgs e)
@@ -204,8 +224,16 @@ namespace DreamInventory.Views.Case
                 CurrentViewCases.AddRange(newList);
 
                 CasesCollection = new ObservableCollection<Cases>(CurrentViewCases);
+
+                setBgColor();
+
                 BindingContext = CasesCollection;
             }
+        }
+
+        private bool IsOdd(int viewCellIndex)
+        {
+            return (viewCellIndex % 2 != 0) ? true : false;
         }
     }
 }

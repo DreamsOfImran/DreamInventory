@@ -51,7 +51,7 @@
                     </Grid.ColumnDefinitions>
 
                     <StackLayout Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center">
-                        <Label Text="+ Add Case" TextColor="#147efb" FontSize="14" FontAttributes="Bold" >
+                        <Label Text="+ Add Case" TextColor="#4a69ff" FontSize="14" FontAttributes="Bold" >
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="NewCase_Tapped" />
                             </Label.GestureRecognizers>
@@ -82,7 +82,7 @@
                                 WidthRequest="100"
                                 HorizontalOptions="Start"
                                 Clicked="PreviousButton_Clicked"
-                                TextColor="#147efb"
+                                TextColor="#4a69ff"
                                 FontSize="14"
                                 FontAttributes="Bold"
                                 CornerRadius="5"
@@ -94,7 +94,7 @@
                                 WidthRequest="70"
                                 HorizontalOptions="End"
                                 Clicked="NextButton_Clicked"
-                                TextColor="#147efb"
+                                TextColor="#4a69ff"
                                 FontSize="14"
                                 FontAttributes="Bold"
                                 CornerRadius="5"
@@ -123,7 +123,7 @@
                     </StackLayout>
 
                     <StackLayout Grid.Column="1">
-                        <Label Text="+ Add Case" TextColor="#147efb" FontSize="16" FontAttributes="Bold" HorizontalOptions="End" Padding="0, 5, 0, 0">
+                        <Label Text="+ Add Case" TextColor="#4a69ff" FontSize="16" FontAttributes="Bold" HorizontalOptions="End" Padding="0, 5, 0, 0">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="NewCase_Tapped" />
                             </Label.GestureRecognizers>
@@ -147,78 +147,88 @@
             </Grid>
 
             <StackLayout Grid.Row="1" x:Name="DesktopCasesList">
-                <Frame BackgroundColor="#147efb" Padding="0" Margin="0, 0, 0, 10" HasShadow="False">
-                    <Grid HeightRequest="40">
-                        <Grid.Margin>
-                            <OnPlatform x:TypeArguments="Thickness">
-                                <On Platform="iOS" Value="5" />
-                                <On Platform="Android, UWP" Value="5" />
-                                <On Platform="macOS" Value="10" />
-                            </OnPlatform>
-                        </Grid.Margin>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0">
+                        <Frame BackgroundColor="#4a69ff" Padding="0" Margin="0, 0, 0, 0" HasShadow="False">
+                            <Grid HeightRequest="60">
+                                <Grid.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="iOS" Value="5" />
+                                        <On Platform="Android, UWP" Value="5" />
+                                        <On Platform="macOS" Value="10" />
+                                    </OnPlatform>
+                                </Grid.Margin>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
 
-                        <Label Margin="10,0,10,0" Text="Case No" VerticalOptions="Center" Grid.Column="0" Style="{StaticResource DesktopListHeaderStyles}" />
-                        <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource DesktopListHeaderStyles}" />
-                        <Label Margin="10,0,10,0" Text="Filing Date" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListHeaderStyles}" />
-                        <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource DesktopListHeaderStyles}" />
+                                <Label Margin="10,0,10,0" Text="Case No" VerticalOptions="Center" Grid.Column="0" Style="{StaticResource DesktopListHeaderStyles}" />
+                                <Label Margin="10,0,10,0" Text="Case Type" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource DesktopListHeaderStyles}" />
+                                <Label Margin="10,0,10,0" Text="Filing Date" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListHeaderStyles}" />
+                                <Label Margin="10,0,10,0" Text="Judge" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource DesktopListHeaderStyles}" />
 
-                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                        <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                    </Grid>
-                </Frame>
+                                <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                                <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                                <BoxView BackgroundColor="White" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                            </Grid>
+                        </Frame>
 
-                <ListView ItemsSource="{Binding}" ItemTapped="ListView_ItemTapped" HasUnevenRows="True" BackgroundColor="White">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Frame BorderColor="#cccccc" HasShadow="False" Margin="1">
-                                    <Grid HeightRequest="20" Margin="-15" Padding="3">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
-                                        <Grid Grid.Row="0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
+                        <ListView ItemsSource="{Binding}" ItemTapped="ListView_ItemTapped" HasUnevenRows="True" BackgroundColor="White">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid HeightRequest="60" BackgroundColor="{Binding ViewCellBackgroundColor}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0" Padding="10, 0, 0, 0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
 
-                                            <Label Text="{Binding CaseNo}" VerticalOptions="Center" Grid.Column="0" FontAttributes="Bold" Style="{StaticResource DesktopListContentStyles}" />
-                                            <Label Text="{Binding CaseType}" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource DesktopListContentStyles}" />
-                                            <Label Text="{Binding FillingDate}" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListContentStyles}" />
-                                            <Label Text="{Binding Judge}" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource DesktopListContentStyles}" />
+                                                <Label Text="{Binding CaseNo}" VerticalOptions="Center" Grid.Column="0" FontAttributes="Bold" Style="{StaticResource DesktopListContentStyles}" />
+                                                <Label Text="{Binding CaseType}" VerticalOptions="Center" Grid.Column="1" Style="{StaticResource DesktopListContentStyles}" />
+                                                <Label Text="{Binding FillingDate}" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource DesktopListContentStyles}" />
+                                                <Label Text="{Binding Judge}" VerticalOptions="Center" Grid.Column="3" Style="{StaticResource DesktopListContentStyles}" />
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                </Frame>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Page" />
-                    <Entry x:Name="CurrentPageEntry"
-                           Keyboard="Numeric"
-                           WidthRequest="30" HeightRequest="20"
-                           HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="Center"
-                           MaxLength="5"
-                           TextChanged="CurrentPageEntry_TextChanged"
-                           Completed="CurrentPageEntry_Completed"/>
-                    <Label x:Name="TotalPagesLabel" />
-                </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" VerticalOptions="End">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                        <Label Text="Page" FontSize="14" />
+                        <Entry x:Name="CurrentPageEntry"
+                               Keyboard="Numeric"
+                               WidthRequest="30"
+                               HeightRequest="20"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               MaxLength="5"
+                               FontSize="14"
+                               TextChanged="CurrentPageEntry_TextChanged"
+                               Completed="CurrentPageEntry_Completed"/>
+                        <Label x:Name="TotalPagesLabel" FontSize="14" />
+                    </StackLayout>
+                    </StackLayout>
+                </Grid>
             </StackLayout>
 
             <StackLayout Grid.Row="1" Padding="0" x:Name="MobileCasesList">
-                <Frame BackgroundColor="#147efb" Padding="0" Margin="0, 0, 0, 10" HasShadow="False">
+                <Frame BackgroundColor="#4a69ff" Padding="0" Margin="0, 0, 0, 10" HasShadow="False">
                     <Grid HeightRequest="70">
                         <Grid.Margin>
                             <OnPlatform x:TypeArguments="Thickness">
@@ -249,7 +259,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Frame HasShadow="False" BorderColor="#cccccc" Margin="0, 0, 0, 10">
+                                <Frame HasShadow="False" BackgroundColor="{Binding ViewCellBackgroundColor}">
                                     <Grid Padding="-10">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />

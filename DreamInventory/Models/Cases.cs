@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using Xamarin.Forms;
 
 namespace DreamInventory
 {
@@ -20,6 +21,7 @@ namespace DreamInventory
         public string CaseUrl { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public Color ViewCellBackgroundColor { get; internal set; }
     }
 
     public class CaseData
