@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace DreamInventory
 {
-    public partial class MasterPage : MasterDetailPage
+    public partial class MasterPage : CustomMasterPage
     {
         public MasterPage()
         {
