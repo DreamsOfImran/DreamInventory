@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MasterDetailPage
+<dreaminventory:CustomMasterPage
+    xmlns:dreaminventory="clr-namespace:DreamInventory"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     NavigationPage.HasNavigationBar="false"
     x:Class="DreamInventory.MasterPage">
-    <MasterDetailPage.Master>
+    <dreaminventory:CustomMasterPage.Master>
         <ContentPage BackgroundColor="#D6D6D6" Title="Menu">
             <ContentPage.Content>
                 <Grid HorizontalOptions="Start" WidthRequest="1000" BackgroundColor="#333333">
@@ -117,9 +118,9 @@
                 </Grid>
             </ContentPage.Content>
         </ContentPage>
-    </MasterDetailPage.Master>
+    </dreaminventory:CustomMasterPage.Master>
 
-    <MasterDetailPage.Detail>
+    <dreaminventory:CustomMasterPage.Detail>
         <ContentPage Padding="10">
             <ContentPage.Content>
                 <StackLayout Margin="5,30,5,5">
@@ -127,5 +128,5 @@
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>
-    </MasterDetailPage.Detail>
-</MasterDetailPage>
+    </dreaminventory:CustomMasterPage.Detail>
+</dreaminventory:CustomMasterPage>
