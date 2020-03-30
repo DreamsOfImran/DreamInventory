@@ -114,7 +114,7 @@
                                     HorizontalOptions="End" />
                         </Grid>
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding FillingDate}" />
+                            <Label Text="{Binding FillingDate, StringFormat='{0: MMM dd, yyyy   hh:mm tt}'}" />
                         </StackLayout>
                     </Grid>
                     <Grid Grid.Row="6" Margin="0, 20, 0, 0">
