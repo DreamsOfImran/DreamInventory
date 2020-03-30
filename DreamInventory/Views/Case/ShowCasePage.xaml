@@ -344,7 +344,7 @@
                         </Grid>
 
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding FillingDate}" FontSize="14" />
+                            <Label Text="{Binding FillingDate, StringFormat='{0: MMM dd, yyyy   hh:mm tt}'}" FontSize="14" />
                         </StackLayout>
                     </Grid>
 
