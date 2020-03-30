@@ -17,8 +17,7 @@ namespace DreamInventory.Views.Case
         public string searchQuery = "";
         public long totalCasesCount;
         public long totalPages;
-        public List<Cases> CurrentViewCases;
-        public ObservableCollection<Cases> CasesCollection { get; private set; }
+        public ObservableCollection<Cases> CurrentViewCases;
         CaseViewModel newCaseViewModel = new CaseViewModel();
 
         public CasesPage()
@@ -73,12 +72,13 @@ namespace DreamInventory.Views.Case
 
         protected override void OnAppearing()
         {
-            if(Device.RuntimePlatform != Device.macOS)
+            if (Device.RuntimePlatform != Device.macOS)
                 pageNumber = 1;
 
             var caseData = newCaseViewModel.GetCaseList(pageNumber);
             totalCasesCount = caseData.TotalCount;
-            CurrentViewCases = caseData.cases;
+            CurrentViewCases = new ObservableCollection<Cases>(caseData.cases);
+
             string CaseCount = "Cases (" + totalCasesCount.ToString() + ")";
             totalPages = (totalCasesCount / pageSize);
             if (totalCasesCount % pageSize != 0)
@@ -90,24 +90,24 @@ namespace DreamInventory.Views.Case
             CasesCountDesktop.Text = CaseCount;
             CasesCountMob.Text = CaseCount;
 
-            setBgColor();
+            SetBgColor();
 
             BindingContext = CurrentViewCases;
             base.OnAppearing();
         }
 
-        private void setBgColor()
+        private void SetBgColor()
         {
             int count = 0;
-            foreach(Cases a in CurrentViewCases)
+            foreach (Cases caseElement in CurrentViewCases)
             {
-                if(IsOdd(count))
+                if (count % 2 != 0)
                 {
-                    a.ViewCellBackgroundColor = Color.FromHex("#ffffff");
+                    caseElement.ViewCellBackgroundColor = Color.FromHex("#ffffff");
                 }
                 else
                 {
-                    a.ViewCellBackgroundColor = Color.FromRgba(0, 0, 0, .05);
+                    caseElement.ViewCellBackgroundColor = Color.FromRgba(0, 0, 0, .05);
                 }
 
                 count++;
@@ -118,9 +118,9 @@ namespace DreamInventory.Views.Case
         {
             pageNumber += 1;
             var apiData = newCaseViewModel.GetCaseList(pageNumber);
-            totalPages = (apiData.TotalCount/ pageSize) + 1;
+            totalPages = (apiData.TotalCount / pageSize) + 1;
 
-            if(totalPages == pageNumber)
+            if (totalPages == pageNumber)
             {
                 nextButton.IsVisible = false;
             }
@@ -131,7 +131,10 @@ namespace DreamInventory.Views.Case
             }
 
             CurrentPageEntry.Text = pageNumber.ToString();
-            BindingContext = apiData.cases;
+            CurrentViewCases = new ObservableCollection<Cases>(apiData.cases);
+            SetBgColor();
+
+            BindingContext = CurrentViewCases;
         }
 
         void PreviousButton_Clicked(object sender, EventArgs e)
@@ -144,21 +147,27 @@ namespace DreamInventory.Views.Case
             pageNumber -= 1;
 
             CurrentPageEntry.Text = pageNumber.ToString();
-            BindingContext = newCaseViewModel.GetCaseList(pageNumber).cases;
+            CurrentViewCases = new ObservableCollection<Cases>(newCaseViewModel.GetCaseList(pageNumber).cases);
+            SetBgColor();
+
+            BindingContext = CurrentViewCases;
         }
 
         void search_event(object sender, EventArgs e)
         {
             var temp = ((Entry)sender);
             searchQuery = temp.Text;
-            BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
+            CurrentViewCases = new ObservableCollection<Cases>(newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases);
+            SetBgColor();
+
+            BindingContext = CurrentViewCases;
         }
 
         void SortPicker_SelectedIndexChanged(System.Object sender, System.EventArgs e)
         {
             var temp = ((Picker)sender);
             string CurrentElementText = temp.SelectedItem.ToString();
-            if (CurrentElementText ==  "None")
+            if (CurrentElementText == "None")
             {
                 sortQuery = "";
             }
@@ -177,7 +186,10 @@ namespace DreamInventory.Views.Case
                 sortQuery = CurrentElementText + "_dsc";
             }
 
-            BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
+            CurrentViewCases = new ObservableCollection<Cases>(newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases);
+            SetBgColor();
+
+            BindingContext = CurrentViewCases;
         }
 
         void CurrentPageEntry_Completed(System.Object sender, System.EventArgs e)
@@ -187,20 +199,23 @@ namespace DreamInventory.Views.Case
                 long _PageNumber = long.Parse(CurrentPageEntry.Text);
                 if (_PageNumber > totalPages)
                     DisplayAlert("Error", "Input value Cannot exceed Total Pages", "Ok");
-                else if(_PageNumber < 1)
+                else if (_PageNumber < 1)
                     DisplayAlert("Error", "Input value cannot be less than one", "Ok");
                 else
                 {
                     pageNumber = _PageNumber;
-                    BindingContext = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases;
+                    CurrentViewCases = new ObservableCollection<Cases>(newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery).cases);
+                    SetBgColor();
+
+                    BindingContext = CurrentViewCases;
                 }
-                
+
             }
             catch
             {
                 DisplayAlert("Error", "Please enter valid Page Number", "Ok");
             }
-            
+
         }
 
         void CurrentPageEntry_TextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
@@ -217,23 +232,16 @@ namespace DreamInventory.Views.Case
             int viewCellIndex = CurrentViewCases.IndexOf(viewCellDetails);
 
             if (CurrentViewCases.Count - 1 <= viewCellIndex && totalPages != pageNumber)
-            {               
+            {
                 pageNumber += 1;
                 var caseData = newCaseViewModel.GetCaseList(pageNumber, sortQuery, searchQuery);
                 List<Cases> newList = caseData.cases;
-                CurrentViewCases.AddRange(newList);
+                newList.ForEach(CurrentViewCases.Add);
 
-                CasesCollection = new ObservableCollection<Cases>(CurrentViewCases);
+                SetBgColor();
 
-                setBgColor();
-
-                BindingContext = CasesCollection;
+                BindingContext = CurrentViewCases;
             }
-        }
-
-        private bool IsOdd(int viewCellIndex)
-        {
-            return (viewCellIndex % 2 != 0) ? true : false;
         }
     }
 }
