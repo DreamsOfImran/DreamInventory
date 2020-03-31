@@ -240,7 +240,8 @@ namespace DreamInventory.Views.Case
 
                 SetBgColor();
 
-                BindingContext = CurrentViewCases;
+                ObservableCollection<Cases> CasesCollection = new ObservableCollection<Cases>(CurrentViewCases);
+                BindingContext = CasesCollection;
             }
         }
     }
