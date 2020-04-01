@@ -20,6 +20,15 @@ namespace DreamInventory.Views.Case
             {
                 MobileNewCaseForm.IsVisible = true;
                 DesktopNewCaseForm.IsVisible = false;
+
+                if (Device.RuntimePlatform == Device.Android)
+                {
+                    MobileDescriptionTextarea.BackgroundColor = Color.Transparent;
+                }
+                else
+                {
+                    MobileDescriptionTextarea.BorderColor = Color.LightGray;
+                }
             }
         }
 

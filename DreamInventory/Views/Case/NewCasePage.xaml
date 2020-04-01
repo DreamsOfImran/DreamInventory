@@ -293,10 +293,10 @@
                     </StackLayout>
 
                     <StackLayout Padding="0, 20, 0, 0" HeightRequest="160">
-                        <Frame BorderColor="LightGray" CornerRadius="5" HasShadow="False" Padding="2">
+                        <Frame CornerRadius="5" HasShadow="False" Padding="2" x:Name="MobileDescriptionTextarea">
                             <Editor Text="{Binding Description}"
                                     HeightRequest="150"
-                                    BackgroundColor="White"
+                                    BackgroundColor="Transparent"
                                     Placeholder="Description"
                                     Style="{StaticResource FormFieldAndLableStyles}" />
                         </Frame>
