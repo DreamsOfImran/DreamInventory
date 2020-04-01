@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamInventory", "DreamInve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamInventory.macOS", "DreamInventory.macOS\DreamInventory.macOS.csproj", "{72431F02-E4E0-4961-B09B-64DFBA633124}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamInventory.Test", "DreamInventory.Test\DreamInventory.Test.csproj", "{4254F715-E45C-426A-9B8A-D5CE985BE600}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,5 +69,17 @@ Global
 		{72431F02-E4E0-4961-B09B-64DFBA633124}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{72431F02-E4E0-4961-B09B-64DFBA633124}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{72431F02-E4E0-4961-B09B-64DFBA633124}.Release|iPhone.Build.0 = Release|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{4254F715-E45C-426A-9B8A-D5CE985BE600}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
