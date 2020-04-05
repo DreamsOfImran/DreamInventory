@@ -259,8 +259,14 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Frame HasShadow="False" BackgroundColor="{Binding ViewCellBackgroundColor}">
-                                    <Grid Padding="-10">
+                                <Frame HasShadow="False" Padding="0" BackgroundColor="{Binding ViewCellBackgroundColor}">
+                                    <Grid>
+                                        <Grid.Padding>
+                                            <OnPlatform x:TypeArguments="Thickness">
+                                                <On Platform="iOS" Value="5" />
+                                                <On Platform="Android" Value="5,15" />
+                                            </OnPlatform>
+                                        </Grid.Padding>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
