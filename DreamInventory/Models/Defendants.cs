@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
+using Xamarin.Forms;
 
 namespace DreamInventory
 {
@@ -15,5 +17,13 @@ namespace DreamInventory
         public int? CaseId { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public Color ViewCellBackgroundColor { get; internal set; }
+    }
+
+    public class DefendantData
+    {
+        public long TotalCount;
+
+        public List<Defendants> defendants;
     }
 }

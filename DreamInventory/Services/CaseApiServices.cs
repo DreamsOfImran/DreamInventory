@@ -61,7 +61,6 @@ namespace DreamInventory.Services
         {
             var client = new HttpClient(GetInsecureHandler());
             var caseID = editedCase.GetType().GetProperty("Id").GetValue(editedCase, null);
-            //var model = new Cases
 
             var json = JsonConvert.SerializeObject(editedCase);
 

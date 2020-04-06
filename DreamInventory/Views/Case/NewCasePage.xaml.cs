@@ -23,11 +23,11 @@ namespace DreamInventory.Views.Case
 
                 if (Device.RuntimePlatform == Device.Android)
                 {
-                    MobileDescriptionTextarea.BackgroundColor = Color.Transparent;
+                    MobileCustomTextarea.BackgroundColor = Color.Transparent;
                 }
                 else
                 {
-                    MobileDescriptionTextarea.BorderColor = Color.LightGray;
+                    MobileCustomTextarea.BorderColor = Color.LightGray;
                 }
             }
         }
