@@ -207,7 +207,6 @@
                             BorderColor="#555555" />
                 </StackLayout>
             </Grid>
-
         </Grid>
 
         <StackLayout x:Name="MobileNewCaseForm" IsVisible="False" Padding="20">
@@ -293,7 +292,7 @@
                     </StackLayout>
 
                     <StackLayout Padding="0, 20, 0, 0" HeightRequest="160">
-                        <Frame CornerRadius="5" HasShadow="False" Padding="2" x:Name="MobileDescriptionTextarea">
+                        <Frame CornerRadius="5" HasShadow="False" Padding="2" x:Name="MobileCustomTextarea">
                             <Editor Text="{Binding Description}"
                                     HeightRequest="150"
                                     BackgroundColor="Transparent"

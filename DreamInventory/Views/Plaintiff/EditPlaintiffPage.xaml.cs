@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using DreamInventory.ViewModels;
 using Xamarin.Forms;
 
-namespace DreamInventory.Views.Case
+namespace DreamInventory.Views.Plaintiff
 {
-    public partial class EditCasePage : ContentPage
+    public partial class EditPlaintiffPage : ContentPage
     {
-        public EditCasePage(Cases caseObject)
+        public EditPlaintiffPage(Plaintiffs plaintiffObject)
         {
             InitializeComponent();
 
             if (Device.RuntimePlatform == Device.macOS)
             {
-                MobileEditCaseForm.IsVisible = false;
-                DesktopEditCaseForm.IsVisible = true;
+                MobileEditPlaintiffForm.IsVisible = false;
+                DesktopEditPlaintiffForm.IsVisible = true;
             }
             else
             {
-                MobileEditCaseForm.IsVisible = true;
-                DesktopEditCaseForm.IsVisible = false;
+                MobileEditPlaintiffForm.IsVisible = true;
+                DesktopEditPlaintiffForm.IsVisible = false;
 
                 if (Device.RuntimePlatform == Device.Android)
                 {
@@ -31,7 +31,7 @@ namespace DreamInventory.Views.Case
                 }
             }
 
-            BindingContext = caseObject;
+            BindingContext = plaintiffObject;
         }
 
         void Cancel_Button_Clicked(System.Object sender, System.EventArgs e)

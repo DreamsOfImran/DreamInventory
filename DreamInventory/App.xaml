@@ -39,8 +39,8 @@
                 <Setter Property="HorizontalTextAlignment" Value="Start" />
             </Style>
 
-            <!--Desktop Show Cases Detail Head Styles-->
-            <Style x:Key="DesktopShowCasesDetailHeadStyles" TargetType="Label">
+            <!--Desktop Show Detail Head Styles-->
+            <Style x:Key="DesktopShowDetailHeadStyles" TargetType="Label">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontAttributes" Value="Bold" />
             </Style>

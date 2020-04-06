@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using DreamInventory.ViewModels;
+
 using Xamarin.Forms;
 
-namespace DreamInventory.Views.Case
+namespace DreamInventory.Views.Defendant
 {
-    public partial class EditCasePage : ContentPage
+    public partial class NewDefendantPage : ContentPage
     {
-        public EditCasePage(Cases caseObject)
+        public NewDefendantPage()
         {
             InitializeComponent();
 
             if (Device.RuntimePlatform == Device.macOS)
             {
-                MobileEditCaseForm.IsVisible = false;
-                DesktopEditCaseForm.IsVisible = true;
+                MobileNewDefendantForm.IsVisible = false;
+                DesktopNewDefendantForm.IsVisible = true;
             }
             else
             {
-                MobileEditCaseForm.IsVisible = true;
-                DesktopEditCaseForm.IsVisible = false;
+                MobileNewDefendantForm.IsVisible = true;
+                DesktopNewDefendantForm.IsVisible = false;
 
                 if (Device.RuntimePlatform == Device.Android)
                 {
@@ -30,8 +30,10 @@ namespace DreamInventory.Views.Case
                     MobileCustomTextarea.BorderColor = Color.LightGray;
                 }
             }
+        }
 
-            BindingContext = caseObject;
+        void Editor_TextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
         }
 
         void Cancel_Button_Clicked(System.Object sender, System.EventArgs e)

@@ -167,7 +167,7 @@ namespace DreamInventory.Views.Case
         {
             var temp = ((Picker)sender);
             string CurrentElementText = temp.SelectedItem.ToString();
-            if (CurrentElementText == "None")
+            if (CurrentElementText.Contains("None"))
             {
                 sortQuery = "";
             }

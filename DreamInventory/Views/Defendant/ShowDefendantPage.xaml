@@ -2,10 +2,10 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="DreamInventory.Views.Case.ShowCasePage">
+    x:Class="DreamInventory.Views.Defendant.ShowDefendantPage">
 
     <Grid>
-        <Grid BindingContext="{Binding}" x:Name="MobileShowCases" Margin="15, 20, 15, 0">
+        <Grid BindingContext="{Binding}" x:Name="MobileShowDefendants" Margin="15, 20, 15, 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -21,13 +21,10 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Row="0">
-                        <Label Text="{Binding CaseNo, StringFormat='Case Number:  {0}'}"
+                        <Label Text="{Binding CaseId, StringFormat='Case ID:  {0}'}"
                             FontAttributes="Bold"
                             FontSize="Large" />
                     </StackLayout>
@@ -38,7 +35,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid>
-                            <Label Text="Type"
+                            <Label Text="Case ID"
                                     FontAttributes="Bold"
                                     HorizontalOptions="Start" />
                             <Label Text=":"
@@ -46,7 +43,7 @@
                                     HorizontalOptions="End" />
                         </Grid>
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding Type}" />
+                            <Label Text="{Binding CaseId}" />
                         </StackLayout>
                     </Grid>
                     <Grid Grid.Row="2" Margin="0, 20, 0, 0">
@@ -55,7 +52,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid>
-                            <Label Text="Amount"
+                            <Label Text="First Name"
                                     FontAttributes="Bold"
                                     HorizontalOptions="Start" />
                             <Label Text=":"
@@ -63,7 +60,7 @@
                                     HorizontalOptions="End" />
                         </Grid>
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding Amount}" />
+                            <Label Text="{Binding FirstName}" />
                         </StackLayout>
                     </Grid>
                     <Grid Grid.Row="3" Margin="0, 20, 0, 0">
@@ -72,7 +69,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid>
-                            <Label Text="Court Type"
+                            <Label Text="Middle Name"
                                     FontAttributes="Bold"
                                     HorizontalOptions="Start" />
                             <Label Text=":"
@@ -80,7 +77,7 @@
                                     HorizontalOptions="End" />
                         </Grid>
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding CourtType}" />
+                            <Label Text="{Binding MiddleName}" />
                         </StackLayout>
                     </Grid>
                     <Grid Grid.Row="4" Margin="0, 20, 0, 0">
@@ -89,7 +86,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid>
-                            <Label Text="Case Type"
+                            <Label Text="Last Name"
                                     FontAttributes="Bold"
                                     HorizontalOptions="Start" />
                             <Label Text=":"
@@ -97,7 +94,7 @@
                                     HorizontalOptions="End" />
                         </Grid>
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding CaseType}" />
+                            <Label Text="{Binding LastName}" />
                         </StackLayout>
                     </Grid>
                     <Grid Grid.Row="5" Margin="0, 20, 0, 0">
@@ -106,7 +103,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid>
-                            <Label Text="Filing Date"
+                            <Label Text="Attorney"
                                     FontAttributes="Bold"
                                     HorizontalOptions="Start" />
                             <Label Text=":"
@@ -114,7 +111,7 @@
                                     HorizontalOptions="End" />
                         </Grid>
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding FillingDate, StringFormat='{0: MMM dd, yyyy   hh:mm tt}'}" />
+                            <Label Text="{Binding Attorney}" />
                         </StackLayout>
                     </Grid>
                     <Grid Grid.Row="6" Margin="0, 20, 0, 0">
@@ -123,7 +120,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid>
-                            <Label Text="Judge"
+                            <Label Text="Address"
                                     FontAttributes="Bold"
                                     HorizontalOptions="Start" />
                             <Label Text=":"
@@ -131,58 +128,7 @@
                                     HorizontalOptions="End" />
                         </Grid>
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding Judge}" />
-                        </StackLayout>
-                    </Grid>
-                    <Grid Grid.Row="7" Margin="0, 20, 0, 0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid>
-                            <Label Text="Docket Type"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Start" />
-                            <Label Text=":"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="End" />
-                        </Grid>
-                        <StackLayout Grid.Column="1">
-                            <Label Text="{Binding DocketType}" />
-                        </StackLayout>
-                    </Grid>
-                    <Grid Grid.Row="8" Margin="0, 20, 0, 0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid>
-                            <Label Text="Description"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Start" />
-                            <Label Text=":"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="End" />
-                        </Grid>
-                        <StackLayout Grid.Column="1">
-                            <Label Text="{Binding Description}" />
-                        </StackLayout>
-                    </Grid>
-                    <Grid Grid.Row="9" Margin="0, 20, 0, 0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid>
-                            <Label Text="Case URL"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Start" />
-                            <Label Text=":"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="End" />
-                        </Grid>
-                        <StackLayout Grid.Column="1">
-                            <Label Text="{Binding CaseUrl}" />
+                            <Label Text="{Binding Address}" />
                         </StackLayout>
                     </Grid>
                 </Grid>
@@ -206,12 +152,10 @@
             </StackLayout>
         </Grid>
 
-        <ScrollView x:Name="DesktopShowCases">
+        <ScrollView x:Name="DesktopShowDefendants">
             <Grid BindingContext="{Binding}" Padding="30" Margin="0, 20, 0, 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -222,7 +166,7 @@
                 <StackLayout Grid.Row="0">
                     <StackLayout>
                         <Label
-                            Text="{Binding CaseNo, StringFormat='Case Number:  {0}'}"
+                            Text="{Binding CaseId, StringFormat='Case ID:  {0}'}"
                             FontAttributes="Bold"
                             FontSize="20" />
                     </StackLayout>
@@ -241,7 +185,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0">
-                            <Label Text="Type"
+                            <Label Text="Case ID"
                                    HorizontalOptions="Start"
                                    Style="{StaticResource DesktopShowDetailHeadStyles}" />
                             <Label Text=":"
@@ -250,7 +194,7 @@
                         </Grid>
 
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding Type}" FontSize="14" />
+                            <Label Text="{Binding CaseId}" FontSize="14" />
                         </StackLayout>
                     </Grid>
 
@@ -261,7 +205,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0">
-                            <Label Text="Amount"
+                            <Label Text="First Name"
                                    HorizontalOptions="Start"
                                    Style="{StaticResource DesktopShowDetailHeadStyles}" />
                             <Label Text=":"
@@ -270,7 +214,7 @@
                         </Grid>
 
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding Amount}" FontSize="14" />
+                            <Label Text="{Binding FirstName}" FontSize="14" />
                         </StackLayout>
                     </Grid>
                 </Grid>
@@ -288,7 +232,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0">
-                            <Label Text="Court Type"
+                            <Label Text="Middle Name"
                                    HorizontalOptions="Start"
                                    Style="{StaticResource DesktopShowDetailHeadStyles}" />
                             <Label Text=":"
@@ -297,7 +241,7 @@
                         </Grid>
 
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding CourtType}" FontSize="14" />
+                            <Label Text="{Binding MiddleName}" FontSize="14" />
                         </StackLayout>
                     </Grid>
 
@@ -308,7 +252,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0">
-                            <Label Text="Case Type"
+                            <Label Text="Last Name"
                                    HorizontalOptions="Start"
                                    Style="{StaticResource DesktopShowDetailHeadStyles}" />
                             <Label Text=":"
@@ -317,7 +261,7 @@
                         </Grid>
 
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding CaseType}" FontSize="14" />
+                            <Label Text="{Binding LastName}" FontSize="14" />
                         </StackLayout>
                     </Grid>
                 </Grid>
@@ -335,7 +279,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0">
-                            <Label Text="Filing Date"
+                            <Label Text="Attorney"
                                    HorizontalOptions="Start"
                                    Style="{StaticResource DesktopShowDetailHeadStyles}" />
                             <Label Text=":"
@@ -344,66 +288,19 @@
                         </Grid>
 
                         <StackLayout Grid.Column="1">
-                            <Label Text="{Binding FillingDate, StringFormat='{0: MMM dd, yyyy   hh:mm tt}'}" FontSize="14" />
-                        </StackLayout>
-                    </Grid>
-
-                    <Grid Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="230" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0">
-                            <Label Text="Judge"
-                                   HorizontalOptions="Start"
-                                   Style="{StaticResource DesktopShowDetailHeadStyles}" />
-                            <Label Text=":"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="End" />
-                        </Grid>
-
-                        <StackLayout Grid.Column="1">
-                            <Label Text="{Binding Judge}" FontSize="14" />
+                            <Label Text="{Binding Attorney}" FontSize="14" />
                         </StackLayout>
                     </Grid>
                 </Grid>
 
                 <Grid Grid.Row="4" Margin="0, 20, 0, 0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="230" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0">
-                            <Label Text="Docket Type"
-                                   HorizontalOptions="Start"
-                                   Style="{StaticResource DesktopShowDetailHeadStyles}" />
-                            <Label Text=":"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="End" />
-                        </Grid>
-
-                        <StackLayout Grid.Column="1">
-                            <Label Text="{Binding DocketType}" FontSize="14" />
-                        </StackLayout>
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="5" Margin="0, 20, 0, 0">
-                    <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="230"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0" VerticalOptions="Start">
-                        <Label Text="Description"
+                        <Label Text="Address"
                                HorizontalOptions="Start"
                                Style="{StaticResource DesktopShowDetailHeadStyles}" />
                         <Label Text=":"
@@ -412,31 +309,11 @@
                     </Grid>
 
                     <Grid Grid.Column="1">
-                        <Label Text="{Binding Description}" FontSize="14" />
+                        <Label Text="{Binding Address}" FontSize="14" />
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Row="6" Margin="0, 20, 0, 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="230" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0" VerticalOptions="Start">
-                        <Label Text="Case URL"
-                               HorizontalOptions="Start"
-                               Style="{StaticResource DesktopShowDetailHeadStyles}" />
-                        <Label Text=":"
-                               FontAttributes="Bold"
-                               HorizontalOptions="End" />
-                    </Grid>
-
-                    <Grid Grid.Column="1">
-                        <Label Text="{Binding CaseUrl}" FontSize="14" />
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="7" Margin="0, 60, 0, 0">
+                <Grid Grid.Row="5" Margin="0, 60, 0, 0">
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Edit"
                                 CommandParameter="{Binding}"
@@ -467,6 +344,5 @@
 
             </Grid>
         </ScrollView>
-
     </Grid>
 </ContentPage>
